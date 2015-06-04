@@ -21,10 +21,10 @@ module.exports = {
         adapter: 'sails-mongo',
         url: 'mongodb://heroku_app37515299:70s78p6ke47h80al0406uvmhuc@ds043022.mongolab.com:43022/heroku_app37515299'
       }
-    }
+    },
     models: {
       connection: 'devMongoServer'
-    },
+    }
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
