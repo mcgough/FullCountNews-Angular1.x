@@ -1,4 +1,4 @@
-PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserService','$log','$http','$resource',function($scope,$routeParams,UserService,$log,$http,$resource){
+PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserService','$log','$http','$resource','$location',function($scope,$routeParams,UserService,$log,$http,$resource,$location){
 
   $scope.currentUser = UserService.currentUser;
 
@@ -30,6 +30,12 @@ PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserServ
   $http.get('/api/headline/getUserPlayerSpecifcNews/' + $routeParams.id).success(function(data){
     $scope.news = data
   })
+
+  $scope.deletePlayer = function(playerId){
+    $http.delete('/api/userlist/' + playerId).success(function(data){
+      $location.path('/following')
+    })
+  }
 
 
 

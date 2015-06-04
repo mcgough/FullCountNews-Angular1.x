@@ -56,14 +56,14 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  devMongoServer: {
-    adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    // user: 'username',
-    // password: 'password',
-    database: 'PlayerTrackerAppDev'
-  },
+  // devMongoServer: {
+  //   adapter: 'sails-mongo',
+  //   host: 'localhost',
+  //   port: 27017,
+  //   // user: 'username',
+  //   // password: 'password',
+  //   database: 'PlayerTrackerAppDev'
+  // },
 
   /***************************************************************************
   *                                                                          *

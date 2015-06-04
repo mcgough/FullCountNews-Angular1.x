@@ -14,10 +14,12 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
 
   //loads users players and updates their stats
   $scope.loadUserList = function(){
+    $scope.loading = true;
     $http.get('/api/userlist/updateUserlistStats').success(function(data){
       $scope.userPlayers = data;
       // console.log(data)
     })
+    $scope.loading = false;
   }
 
   $scope.loadUserList();
@@ -92,9 +94,11 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
 
   //compares headlines to user players last name
   $scope.getHeadlines = function(){
+    $scope.loading = true;
     Headline.query({},function(data){
       $scope.news = data;
     })
+    $scope.loading = false;
   }
   $scope.getHeadlines();
 
