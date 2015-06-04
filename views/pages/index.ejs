@@ -1,0 +1,36 @@
+
+  <div class='navbar-fixed'>
+  <nav class='blue' ng-controller='NavCtrl'>
+    <div class="nav-wrapper navbar">
+      <ul ng-repeat='new in news'><li><a href="#!" class="brand-logo center nav-headline" ng-click='showDialog(new)'>{{new.title | limitTo:50}}</a></li></ul>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <!-- <ul class='right hide-on-med-and-down' ng-repeat='headline in headlines | limitTo: 1'><li>{{headline.title}}</li></ul> -->
+      <ul class="right hide-on-med-and-down">
+
+        <li><a href="/following" ng-if='currentUser'>Your Feed</a></li>
+<!--         <li><a href="/headlines">Headlines</a></li>
+        <li><a href="/players">Players</a></li> -->
+        <!-- <li><a href="mobile.html">Mobile</a></li> -->
+  <!--     </ul>
+      <ul class="left hide-on-med-and-down"> -->
+        <li><a href='/signup' ng-hide='currentUser'>SignUp</a></li>
+        <li><a href='/login' ng-hide='currentUser'>LogIn</li>
+        <li><a href='#' ng-click='logout()' ng-show='currentUser'>LogOut</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/following" ng-show='currentUser'>Your Feed</a></li>
+        <li><a href="/login" ng-hide='currentUser'>LogIn</a></li>
+        <li><a href="#" ng-click'logout()' ng-show='currentUser'>LogOut</a></li>
+        <!-- <li><a href="mobile.html">Mobile</a></li> -->
+      </ul>
+    </div>
+  </nav>
+  </div>
+
+  <alerts></alerts>
+
+  <div class='container'>
+
+    <ng-view></ng-view>
+
+

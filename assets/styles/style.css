@@ -1,0 +1,50 @@
+
+.nav-headline .ng-enter {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+/*.nav-headline .ng-leave {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}*/
+.nav-headline {
+  font-size: 25px !important;
+}
+.headshot {
+  float: left;
+  height: 150px;
+  width: 110px;
+  border-radius: 5%;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+.autocomplete-form {
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
+a {
+  color: black;
+}
+/*.player-delete {
+  position: relative;
+  top: 25px;
+}*/
+.card-player-name {
+  font-size: 20px;
+}
+
+
+/*media queries*/
+
+@media (max-width: 600px) {
+  .nav-headline {
+    font-size: 10px;
+  }
+}
+
+

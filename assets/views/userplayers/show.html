@@ -1,0 +1,85 @@
+
+<div class='row'>
+  <div class='col m6 col s12'>
+    <ul class="collection with-header card card-content z-depth-3">
+      <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
+      <li class="collection-item"><img class='headshot' src='{{player.img}}'><h4>{{player.firstName | properCase}} {{player.lastName | properCase}}</h4> {{player.teamPosition}} <br>{{player.alert}}<button type="button" class="waves-effect waves-light btn-floating red right" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button><br><br><br>
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-hide="player.pitcher">Runs</th>
+              <th ng-show="player.pitcher">K's</th>
+              <th ng-hide='player.pitcher'>HR's</th>
+              <th ng-show='player.pitcher'>W's</th>
+              <th ng-hide='player.pitcher'>RBI's</th>
+              <th ng-show='player.pitcher'>Sv's</th>
+              <th ng-hide='player.pitcher'>SB's</th>
+              <th ng-show='player.pitcher'>ERA</th>
+              <th ng-hide='player.pitcher'>AVG</th>
+              <th ng-show='player.pitcher'>Whip</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>2015 Totals</th>
+              <td>{{player.runsK}}</td>
+              <td>{{player.hrW}}</td>
+              <td>{{player.rbiSv}}</td>
+              <td>{{player.sbEra}}</td>
+              <td>{{player.avgWhip}}</td>
+            </tr>
+            <tr>
+              <th>Past 7 Days</th>
+              <td>{{player.sevRunsK}}</td>
+              <td>{{player.sevHrW}}</td>
+              <td>{{player.sevRbiSv}}</td>
+              <td>{{player.sevSbEra}}</td>
+              <td>{{player.sevAvgWhip}}</td>
+            </tr>
+            <tr>
+              <th>Past 15 Days</th>
+              <td>{{player.fiftRunsK}}</td>
+              <td>{{player.fiftHrW}}</td>
+              <td>{{player.fiftRbiSv}}</td>
+              <td>{{player.fiftSbEra}}</td>
+              <td>{{player.fiftAvgWhip}}</td>
+            </tr>
+            <tr>
+              <th>Past 30 Days</th>
+              <td>{{player.thirRunsK}}</td>
+              <td>{{player.thirHrW}}</td>
+              <td>{{player.thirRbiSv}}</td>
+              <td>{{player.thirSbEra}}</td>
+              <td>{{player.thirAvgWhip}}</td>
+            </tr>
+            <tr>
+              <th>2014 Totals</th>
+              <td>{{player.lastYearRunsK}}</td>
+              <td>{{player.lastYearHrW}}</td>
+              <td>{{player.lastYearRbiSv}}</td>
+              <td>{{player.lastYearSbEra}}</td>
+              <td>{{player.lastYearAvgWhip}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </div>
+<div class='col m6 col s12'>
+    <ul class="collection with-header card card-content z-depth-3" ng-repeat='new in news'>
+  <!--     <div class='card'>
+        <div class='card-content'> -->
+          <li class="collection-item">
+            <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
+            <b>{{new.title}}</b><br><br>{{new.body}}
+
+          </li>
+ <!--        </div>
+      </div> -->
+    </ul>
+  </div>
+</div>
+
+
+

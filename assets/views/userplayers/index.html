@@ -1,0 +1,77 @@
+<div class="row">
+  <div class='col s8 offset-s2'>
+    <form>
+      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item" md-selected-item-change='findPlayer()' placeholder='Search for a player'  md-autofocus class='autocomplete-form'>
+        <span md-highlight-text="searchText">{{item.firstName | properCase}} {{item.lastName | properCase}}</span>
+      </md-autocomplete>
+    </form>
+  </div>
+</div>
+<div class='row'>
+  <div class='col m6 col s12'>
+    <h3 class='center'>Players</h3>
+    <ul class="collection with-header card card-content z-depth-2" ng-repeat='player in userPlayers'>
+      <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
+      <a ng-href='/following/{{player.id}}'>
+      <li class="collection-item">
+        <img class='headshot' src='{{player.img}}'>
+        <h4 class='card-player-name'>{{player.firstName | properCase}} {{player.lastName | properCase}}</h4>
+        </a> {{player.teamPosition}} <br>{{player.alert}}
+        <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button><br>
+<!--         <table class="responsive-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-hide="player.pitcher">Runs</th>
+              <th ng-show="player.pitcher">K's</th>
+              <th ng-hide='player.pitcher'>HR's</th>
+              <th ng-show='player.pitcher'>W's</th>
+              <th ng-hide='player.pitcher'>RBI's</th>
+              <th ng-show='player.pitcher'>Sv's</th>
+              <th ng-hide='player.pitcher'>SB's</th>
+              <th ng-show='player.pitcher'>ERA</th>
+              <th ng-hide='player.pitcher'>AVG</th>
+              <th ng-show='player.pitcher'>Whip</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>2015 Totals</th>
+              <td>{{player.runsK}}</td>
+              <td>{{player.hrW}}</td>
+              <td>{{player.rbiSv}}</td>
+              <td>{{player.sbEra}}</td>
+              <td>{{player.avgWhip}}</td>
+            </tr>
+          </tbody>
+        </table> -->
+      </li>
+    </ul>
+  </div>
+  <div class='col m6 col s12'>
+    <h3 class='center'>League News</h3>
+    <ul class="collection with-header card card-content z-depth-1" ng-repeat='new in news'>
+  <!--     <div class='card'>
+        <div class='card-content'> -->
+          <li class="collection-item">
+            <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
+            <a href='#' ng-click='showDialog(new)'><b>{{new.title | limitTo: 60}}</b></a>
+
+          </li>
+ <!--        </div>
+      </div> -->
+    </ul>
+    <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
