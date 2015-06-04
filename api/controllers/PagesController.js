@@ -35,7 +35,6 @@ var loadDB = function(){
       var players = results.map(function(index,element){
         return $(this).text().trim();
       }).get();
-      console.log(players[1].split(' ')[0].split('.')[1].trim());
       players.forEach(function(player,idx){
         // console.log(player.toLowerCase().split(' ')[0].split('.').slice(1,3)[0].trim() + player.toLowerCase().split(' ')[0].split('.').slice(1,3)[1].trim());
         if(player.indexOf('SP') !== -1 && player.toLowerCase().split(' ')[0].split('.').length === 2){
