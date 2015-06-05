@@ -22,7 +22,7 @@ PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','
         $scope.news = [{title:'Welcome to FullCountNews'}]
         index = 0;
       }
-    },2000)
+    },10000)
   }
 
   ticker();

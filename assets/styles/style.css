@@ -1,22 +1,19 @@
-body {
 
-}
 
 /*navar*/
 
-.nav-headline .ng-enter {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
+.ticker.ng-enter {
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
 }
-/*.nav-headline .ng-leave {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-name: fadeOutUp;
-  animation-name: fadeOutUp;
-}*/
-
+.ticker.ng-leave {
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-name: slideOutLeft;
+  animation-name: slideOutLeft;
+}
 .nav-logo {
   font-size: 25px !important;
   margin-left: -15px;
@@ -36,7 +33,7 @@ body {
 /* welcome page */
 
 .welcome-header {
-  margin-top: 100px;
+  margin-top: 2em;
 }
 .welcome-subheader {
   margin-bottom: 30px;
@@ -77,7 +74,7 @@ a {
 
 @media (max-width: 600px) {
   .nav-headline {
-    font-size: 13px !important;
+    font-size: 10px !important;
   }
   .show-player-name {
     font-size: 20px !important;

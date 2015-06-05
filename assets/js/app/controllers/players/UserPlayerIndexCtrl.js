@@ -20,8 +20,8 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     $http.get('/api/userlist/updateUserlistStats').success(function(data){
       $scope.userPlayers = data;
       $scope.userPlayers.forEach(function(player,index){
-        if(player.alert ==='DL'){
-          playered.injured = true
+        if(player.alert.indexOf('DL') !== -1){
+          player.injured = true
           console.log('injured',player.lastName)
         }else if(player.teamPosition.indexOf('SP') === -1){
           if(parseFloat(player.fiftAvgWhip) > .300){
@@ -108,15 +108,16 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
           newPlayer.pitcher = player.pitcher;
           newPlayer.img = player.img;
           newPlayer.$save({userId:$scope.currentUser.id},function(){
-            $scope.loadUserList();
             $scope.getHeadlines();
             $scope.searchText = '';
+            $scope.loadUserList();
             return true
           })
         }
       })
     })
   }
+    $scope.loadUserList();
 
 
   //delete button function
