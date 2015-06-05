@@ -23,16 +23,16 @@
 <div class='row'>
   <div class='col m6 col s12'>
     <!-- <h3 class='center'>Players</h3> -->
-    <ul class="collection with-header card card-content z-depth-2" ng-repeat='player in userPlayers'>
+    <ul class="collection with-header card card-content z-depth-2" ng-repeat='load in loadList'>
       <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
-      <a ng-href='/following/{{player.id}}'>
+      <a ng-href='/following/{{load.id}}'>
       <li class="collection-item">
-        <img class='headshot' src='{{player.img}}'>
-        <h4 class='card-player-name'>{{player.firstName | properCase}} {{player.lastName | properCase}}</h4>
-        </a> {{player.teamPosition}}
-        <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-if='player.fire'><i class='fa fa-fire'></i></button>
-        <button type="button" class="waves-effect waves-light btn-floating blue right player-delete" ng-if='player.ice'><i class='fa fa-asterisk'></i></button>
-        <button type="button" class="waves-effect waves-light btn-floating yellow right player-delete" ng-if='player.injured'><i class='fa fa-exclamation-triangle'></i></button>
+        <img class='headshot' src='{{load.img}}'>
+        <h4 class='card-player-name'>{{load.firstName | properCase}} {{load.lastName | properCase}}</h4>
+        </a> {{load.teamPosition}}
+        <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-if='load.fire'><i class='fa fa-fire'></i></button>
+        <button type="button" class="waves-effect waves-light btn-floating blue right player-delete" ng-if='load.ice'><i class='fa fa-asterisk'></i></button>
+        <button type="button" class="waves-effect waves-light btn-floating yellow right player-delete" ng-if='load.injured'><i class='fa fa-exclamation-triangle'></i></button>
 
 <!--         <table class="responsive-table">
           <thead>

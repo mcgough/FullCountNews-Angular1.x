@@ -50,8 +50,8 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
 
         }
       }
+      $scope.loadList = $scope.userPlayers
     })
-    // $scope.loading = false;
   })
 }
   $scope.loadUserList();
@@ -115,8 +115,8 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
         }
       })
     })
-  }
     $scope.loadUserList();
+  }
 
 
   //delete button function
