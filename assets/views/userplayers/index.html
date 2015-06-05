@@ -30,7 +30,8 @@
         <img class='headshot' src='{{player.img}}'>
         <h4 class='card-player-name'>{{player.firstName | properCase}} {{player.lastName | properCase}}</h4>
         </a> {{player.teamPosition}}
-        <!-- <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button><br> -->
+        <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-if='player.fire'><i class='fa fa-fire-extinguisher'></i></button>
+        <button type="button" class="waves-effect waves-light btn-floating blue right player-delete" ng-if='player.ice'><i class='fa fa-asterisk'></i></button>
 <!--         <table class="responsive-table">
           <thead>
             <tr>
@@ -61,7 +62,7 @@
       </li>
     </ul>
   </div>
-  <div class='col m6 col s12'>
+  <div class='col m6 col s12' ng-if='!$root.isMobile'>
     <!-- <h3 class='center'>League News</h3> -->
     <ul class="collection with-header card card-content z-depth-1" ng-repeat='new in news'>
   <!--     <div class='card'>

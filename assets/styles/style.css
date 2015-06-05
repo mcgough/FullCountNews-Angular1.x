@@ -1,3 +1,7 @@
+body {
+
+}
+
 /*navar*/
 
 .nav-headline .ng-enter {
@@ -15,9 +19,27 @@
 
 .nav-logo {
   font-size: 25px !important;
+  margin-left: -15px;
+  color: white !important;
 }
 .nav-headline {
   font-size: 20px !important;
+}
+.side-nav {
+  background-color: #2196f3  !important;
+}
+.sidenav-a {
+  font-size: 19px !important;
+  color: white !important;
+}
+
+/* welcome page */
+
+.welcome-header {
+  margin-top: 100px;
+}
+.welcome-subheader {
+  margin-bottom: 30px;
 }
 
 
@@ -41,7 +63,6 @@
 }
 .autocomplete-form {
   margin-top: 20px;
-  margin-bottom: -20px;
 }
 
 a {
@@ -60,6 +81,15 @@ a {
   }
   .show-player-name {
     font-size: 20px !important;
+  }
+  .welcome-header {
+    font-size: 35px;
+  }
+  .welcome-subheader {
+    font-size: 25px;
+  }
+  .headshot {
+    margin-left: -20px;
   }
 }
 

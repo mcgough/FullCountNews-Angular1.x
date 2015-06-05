@@ -1,5 +1,5 @@
 PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','AlertService','$rootScope','$location','$mdDialog','$route','$mdToast',function($scope,UserService,$location,$http,AlertService,$rootScope,$location,$mdDialog,$route,$mdToast){
-
+  console.log('!!!!!!!!!!!',$rootScope.isMobile)
 
   $scope.UserService = UserService;
   // $scope.currentUser = UserService.currentUser

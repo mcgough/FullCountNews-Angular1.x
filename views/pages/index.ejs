@@ -4,17 +4,18 @@
     <div class="nav-wrapper navbar">
 
       <ul class="left hide-on-med-and-down">
-        <li><a ng-href='/' class='nav-logo'>FullCountNews</a></li>
+        <li><a ng-href='/' class='nav-logo center'>FullCountNews</a></li>
       </ul>
-      <ul ng-repeat='new in news | limitTo: 1' ng-show='currentUser'><li><a href="#!" class="brand-logo center nav-headline truncate" ng-click='showDialog("headline",new)'>{{new.title | limitTo:50}}</a></li></ul>
+      <ul ng-repeat='new in news | limitTo: 1' ng-show='currentUser' ng-if='$root.isMobile'><li><a href="#" class="brand-logo center nav-headline" ng-click='showDialog("headline",new)'>{{new.title | limitTo: 30}}</a></li></ul>
+      <ul ng-repeat='new in news | limitTo: 1' ng-show='currentUser' ng-if='!$root.isMobile'><li><a href="#" class="brand-logo center nav-headline" ng-click='showDialog("headline",new)'>{{new.title | limitTo:70}}</a></li></ul>
       <ul ng-hide='currentUser'>
         <li class="brand-logo center nav-headline">FullCountNews Ticker</li>
       </ul>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu blue"></i></a>
       <!-- <ul class='right hide-on-med-and-down' ng-repeat='headline in headlines | limitTo: 1'><li>{{headline.title}}</li></ul> -->
       <ul class="right hide-on-med-and-down">
 
-        <li><a href="/following" ng-if='currentUser'>Your Lineup</a></li>
+        <li><a href="/following" ng-if='currentUser'>Lineup</a></li>
 
         <li><a href='#' ng-hide='currentUser' ng-click='showDialog("login")'>LogIn</a></li>
         <li><a href='/signup' ng-hide='currentUser'>SignUp</a></li>
@@ -22,12 +23,13 @@
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a ng-href='/' class='nav-logo'>FullCountNews</a></li>
-        <li><a ng-href="/following" ng-show='currentUser'>Your Lineup</a></li>
-        <li><a ng-href='/headlines' ng-show='currentUser'>League News</a></li>
-        <li><a ng-href='#'  ng-click='showDialog("login")' ng-hide='currentUser'>LogIn</a></li>
-        <li><a ng-href='/signup' ng-hide='currentUser'>SignUp</a></li>
-        <li><a ng-href='/' ng-click='logout()' ng-show='currentUser'>LogOut</a></li>
-        <li><a ng-href='#'>About</a></li>
+        <li><hr></li>
+        <li><a ng-href="/following" ng-show='currentUser' class='sidenav-a'>Lineup</a></li>
+        <li><a ng-href='/headlines' ng-show='currentUser' class='sidenav-a'>League News</a></li>
+        <li><a ng-href='#'  ng-click='showDialog("login")' ng-hide='currentUser' class='sidenav-a'>LogIn</a></li>
+        <li><a ng-href='/signup' ng-hide='currentUser' class='sidenav-a'>SignUp</a></li>
+        <li><a ng-href='/' ng-click='logout()' ng-show='currentUser' class='sidenav-a'>LogOut</a></li>
+        <li><a ng-href='#' class='sidenav-a'>About</a></li>
         <!-- <li><a href="mobile.html">Mobile</a></li> -->
       </ul>
     </div>

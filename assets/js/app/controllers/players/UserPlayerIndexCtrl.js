@@ -19,12 +19,44 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     $scope.loading = true;
     $http.get('/api/userlist/updateUserlistStats').success(function(data){
       $scope.userPlayers = data;
-      // console.log(data)
+      $scope.userPlayers.forEach(function(player,index){
+        if(player.alert ==='DL'){
+          playered.injured = true
+          console.log('injured',player.lastName)
+        }else if(player.teamPosition.indexOf('SP') === -1){
+          if(parseFloat(player.fiftAvgWhip) > .300){
+            console.log(player.fiftAvgWhip)
+            player.fire = true;
+            console.log('fire hitter',player.lastName)
+          }else if(parseFloat(player.fiftAvgWhip) < .200){
+            player.ice = true;
+            console.log('ice',player.lastName)
+          }
+        }else if(player.teamPosition.indexOf('SP') !== -1){
+          if(parseFloat(player.fiftSbEra) < 2.75){
+            player.fire = true;
+            console.log('fire pitcher',player.lastName)
+         }else if(parseFloat(player.fiftSbEra) > 4){
+            player.ice = true;
+            console.log('ice',player.lastName)
+          // }
+        }else if(player.teamPosition.indexOf('RP') !== -1){
+          if(parseFloat(player.fiftSbEra) < 0){
+            player.fire = true;
+            console.log('fire',player.lastName)
+          }else if(parseFloat(player.fiftSbEra) > 2){
+            player.ice = true;
+          }
+
+        }
+      }
     })
     $scope.loading = false;
-  }
+  })
+}
 
   $scope.loadUserList();
+
 
   //autocomplete function
   $scope.getMatches = function(){

@@ -1,7 +1,9 @@
 PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserService','$log','$http','$resource','$location',function($scope,$routeParams,UserService,$log,$http,$resource,$location){
 
-  $scope.UserService = UserService;
-  $scope.currentUser = UserService.currentUser
+  $scope.currentUser = UserService.currentUser;
+
+  console.log($routeParams);
+
    $scope.$watchCollection('UserService',function(){
       $scope.currentUser = UserService.currentUser;
       if($scope.currentUser==false){
