@@ -1,13 +1,13 @@
-var PlayerTracker = angular.module('PlayerTracker',['ngRoute','ngResource','angucomplete','ngAnimate','ngMaterial']);
+var PlayerTracker = angular.module('PlayerTracker',['ngRoute','ngResource','ngAnimate','ngMaterial']);
 
 PlayerTracker.run(['$rootScope','AlertService','UserService',function($rootScope,AlertService,UserService){
   UserService.check(function(err,data){
-    // console.log('user',data,err)
+    console.log('user',data,err)
   })
-  $rootScope.$on('$routeChangeStart',function(event,next,current){
-    // console.log('change',event,next,current)
-    AlertService.clear();
-  })
+  // $rootScope.$on('$routeChangeStart',function(event,next,current){
+  //   console.log('change',event,next,current)
+  //   AlertService.clear();
+  // })
 }])
 //routing
 PlayerTracker.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
@@ -17,7 +17,7 @@ PlayerTracker.config(['$routeProvider','$locationProvider',function($routeProvid
   $routeProvider
   .when('/',{
     templateUrl: '/views/welcome.html',
-    contoller: 'WelcomeCtrl'
+    controller: 'WelcomeCtrl'
   })
   .when('/following',{
     templateUrl: '/views/userplayers/index.html',

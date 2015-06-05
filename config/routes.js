@@ -36,7 +36,7 @@ module.exports.routes = {
 
   'get /api/headline/getHeadlines': 'HeadlineController.getHeadlines',
 
-  'get /api/headline/getUserPlayerSpecifcNews': 'HeadlineController.getUserPlayerSpecifcNews',
+  'get /api/headline/getUserPlayerSpecificNews': 'HeadlineController.getUserPlayerSpecifcNews',
 
   'get /api/playerdb' : 'PlayerdbController.getPlayerStats',
 

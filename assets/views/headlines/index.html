@@ -1,5 +1,10 @@
-<ul class="collection with-header card card-content">
-  <li class="collection-item"> <h4 class='center'>Headlines</h4></li>
-  <li class="collection-item" ng-repeat='headline in headlines' class='flow-text'><b>{{headline.title}}</b><br>{{headline.body}}<br></li>
-</ul>
+<div class="row">
+  <div class="col s12">
+    <ul class="collection with-header card card-content z-depth-1" ng-repeat='new in news'>
+      <li class="collection-item">
+        <a href='#' ng-click='showDialog(new)'><b>{{new.title}}</b></a>
+      </li>
+    </ul>
+  </div>
+</div>
 

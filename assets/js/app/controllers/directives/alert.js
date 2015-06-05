@@ -14,6 +14,6 @@ PlayerTracker.directive('alerts',function(){
       }
     }],
     replace: true,
-    template: '<ul ng-repeat="alert in getAlerts()" type="{{alert.type}}" close="$parent.closeAlert($index)" class="center card card-content z-depth-3"><li><span class="highlight">{{alert.text}}</span></li></ul>'
+    template: '<ul ng-repeat="alert in getAlerts()" type="{{alert.type}}" close="$parent.closeAlert($index)" class="card"><li class="center card-content z-depth-3" style="height: 25px; font-size: 20px">{{alert.text}}</li></ul>'
   }
 })

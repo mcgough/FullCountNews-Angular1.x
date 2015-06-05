@@ -1,4 +1,4 @@
-PlayerTracker.controller('UserCreateCtrl',['$scope','$resource',function($scope,$resource){
+PlayerTracker.controller('UserCreateCtrl',['$scope','$resource','$location',function($scope,$resource,$location){
   console.log('user ctrl connected');
   var User = $resource('/api/user/:id');
   $scope.userCreate = function(){
@@ -9,5 +9,7 @@ PlayerTracker.controller('UserCreateCtrl',['$scope','$resource',function($scope,
       $scope.email = '';
       $scope.password = '';
     })
+    Materialize.toast('Your are signed up! Now login to enjoy the news', 4000,'signup')
   }
+  $location.path('/')
 }])

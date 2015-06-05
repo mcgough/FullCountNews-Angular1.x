@@ -1,11 +1,13 @@
-PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','UserService','$q','$mdDialog',function($scope,$resource,$http,UserService,$q,$mdDialog){
+PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','UserService','$q','$mdDialog','$location',function($scope,$resource,$http,UserService,$q,$mdDialog,$location){
 
-  $scope.currentUser = UserService.currentUser;
-
-  $scope.$watchCollection('UserService',function(){
-    console.log('a change occurred with the user')
-    $scope.currentUser = UserService.currentUser;
-  })
+  $scope.UserService = UserService;
+  $scope.currentUser = UserService.currentUser
+   $scope.$watchCollection('UserService',function(){
+      $scope.currentUser = UserService.currentUser;
+      if($scope.currentUser==false){
+        $location.path('/')
+      }
+    });
 
   var Player = $resource('/api/userlist/:id');
   var Db = $resource('/api/playerdb/:id');
@@ -54,12 +56,13 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
 
   //finds player in db and saves to userlist
   $scope.findPlayer = function(){
+    console.log($scope.searchText.split(' '))
     $http.get('/api/playerdb/getAllPlayers').success(function(data){
       $scope.players = data;
-      // var first = $scope.searchText.split(' ')[0].toLowerCase();
-      // var last = $scope.searchText.split(' ')[1].toLowerCase();
+      var first = $scope.searchText.split(' ')[0].toLowerCase();
+      var last = $scope.searchText.split(' ')[1].toLowerCase();
       $scope.players.forEach(function(player){
-        if($scope.searchText.firstName === player.firstName && $scope.searchText.lastName === player.lastName){
+        if(first=== player.firstName && last === player.lastName){
           var newPlayer = new Player();
           newPlayer.firstName = player.firstName;
           newPlayer.lastName = player.lastName;

@@ -2,36 +2,39 @@
   <div class='navbar-fixed'>
   <nav class='blue' ng-controller='NavCtrl'>
     <div class="nav-wrapper navbar">
+
       <ul class="left hide-on-med-and-down">
-        <li><a ng-ref='/'>FullCountNews</a></li>
+        <li><a ng-href='/' class='nav-logo'>FullCountNews</a></li>
       </ul>
-      <ul ng-repeat='new in news'><li><a href="#!" class="brand-logo center nav-headline" ng-click='showDialog(new)'>{{new.title | limitTo:50}}</a></li></ul>
+      <ul ng-repeat='new in news | limitTo: 1' ng-show='currentUser'><li><a href="#!" class="brand-logo center nav-headline truncate" ng-click='showDialog("headline",new)'>{{new.title | limitTo:50}}</a></li></ul>
+      <ul ng-hide='currentUser'>
+        <li class="brand-logo center nav-headline">FullCountNews Ticker</li>
+      </ul>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       <!-- <ul class='right hide-on-med-and-down' ng-repeat='headline in headlines | limitTo: 1'><li>{{headline.title}}</li></ul> -->
       <ul class="right hide-on-med-and-down">
 
-        <li><a href="/following" ng-if='currentUser'>Your Feed</a></li>
-<!--         <li><a href="/headlines">Headlines</a></li>
-        <li><a href="/players">Players</a></li> -->
-        <!-- <li><a href="mobile.html">Mobile</a></li> -->
-  <!--     </ul>
-      <ul class="left hide-on-med-and-down"> -->
+        <li><a href="/following" ng-if='currentUser'>Your Lineup</a></li>
+
+        <li><a href='#' ng-hide='currentUser' ng-click='showDialog("login")'>LogIn</a></li>
         <li><a href='/signup' ng-hide='currentUser'>SignUp</a></li>
-        <li><a href='/login' ng-hide='currentUser'>LogIn</li>
-        <li><a href='#' ng-click='logout()' ng-show='currentUser'>LogOut</a></li>
+        <li><a href='/' ng-click='logout()' ng-show='currentUser'>LogOut</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a ng-ref='/'>FullCount</a></li>
-        <li><a href="/following" ng-show='currentUser'>Your Feed</a></li>
-        <li><a href="/login" ng-hide='currentUser'>LogIn</a></li>
-        <li><a href="#" ng-click'logout()' ng-show='currentUser'>LogOut</a></li>
+        <li><a ng-href='/' class='nav-logo'>FullCountNews</a></li>
+        <li><a ng-href="/following" ng-show='currentUser'>Your Lineup</a></li>
+        <li><a ng-href='/headlines' ng-show='currentUser'>League News</a></li>
+        <li><a ng-href='#'  ng-click='showDialog("login")' ng-hide='currentUser'>LogIn</a></li>
+        <li><a ng-href='/signup' ng-hide='currentUser'>SignUp</a></li>
+        <li><a ng-href='/' ng-click='logout()' ng-show='currentUser'>LogOut</a></li>
+        <li><a ng-href='#'>About</a></li>
         <!-- <li><a href="mobile.html">Mobile</a></li> -->
       </ul>
     </div>
   </nav>
   </div>
 
-  <alerts></alerts>
+<!--   <alerts></alerts> -->
 
   <div class='container'>
 

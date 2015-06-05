@@ -1,15 +1,28 @@
+<!-- <div class="row" ng-hide='currentUser'>
+  <div class="col m6 offset-m3 offset-3">
+    <ul class="collection with-header card card-content z-depth-1" ng-repeat='new in news'>
+      <li class="collection-item">
+        <a href='#' ng-click='showDialog(new)'><b>{{new.title | limitTo: 60}}</b></a>
+      </li>
+    </ul>
+  </div>
+</div> -->
+
+
+<!--   </div>
+</div> -->
 <div class="row">
-  <div class='col s8 offset-s2' ng-show='currentUser'>
-    <form>
-      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item" md-selected-item-change='findPlayer()' placeholder='Search for a player'  md-autofocus class='autocomplete-form'>
+  <div class='col s8 offset-s2'>
+    <form ng-click='findPlayer()'>
+      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item.firstName + ' ' + item.lastName" md-selected-item-change='findPlayer()' placeholder='Search for a player'  md-autofocus class='autocomplete-form z-depth-2'>
         <span md-highlight-text="searchText">{{item.firstName | properCase}} {{item.lastName | properCase}}</span>
       </md-autocomplete>
     </form>
   </div>
 </div>
 <div class='row'>
-  <div class='col m6 col s12' ng-show='currentUser'>
-    <h3 class='center'>Players</h3>
+  <div class='col m6 col s12'>
+    <!-- <h3 class='center'>Players</h3> -->
     <ul class="collection with-header card card-content z-depth-2" ng-repeat='player in userPlayers'>
       <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
       <a ng-href='/following/{{player.id}}'>
@@ -17,7 +30,7 @@
         <img class='headshot' src='{{player.img}}'>
         <h4 class='card-player-name'>{{player.firstName | properCase}} {{player.lastName | properCase}}</h4>
         </a> {{player.teamPosition}}
-        <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button><br>
+        <!-- <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button><br> -->
 <!--         <table class="responsive-table">
           <thead>
             <tr>
@@ -49,19 +62,19 @@
     </ul>
   </div>
   <div class='col m6 col s12'>
-    <h3 class='center'>League News</h3>
+    <!-- <h3 class='center'>League News</h3> -->
     <ul class="collection with-header card card-content z-depth-1" ng-repeat='new in news'>
   <!--     <div class='card'>
         <div class='card-content'> -->
           <li class="collection-item">
             <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
-            <a href='#' ng-click='showDialog(new)'><b>{{new.title | limitTo: 60}}</b></a>
+            <a href='#' ng-click='showDialog(new)'><b>{{new.title}}</b></a>
 
           </li>
  <!--        </div>
       </div> -->
     </ul>
-    <md-progress-circular class="md-hue-2 center" md-mode="indeterminate" ng-show='loading'></md-progress-circular>
+    <!-- <md-progress-circular class="md-hue-2 center" md-mode="indeterminate" ng-show='loading'></md-progress-circular> -->
   </div>
 </div>
 

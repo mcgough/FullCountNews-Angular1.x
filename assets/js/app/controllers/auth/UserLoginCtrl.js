@@ -1,17 +1,11 @@
-PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','AlertService','$location',function($scope,$resource,UserService,AlertService,$location){
+PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','AlertService','$location','$mdDialog','$mdToast',function($scope,$resource,UserService,AlertService,$location,$mdDialog,$mdToast){
 
 
   $scope.UserService = UserService;
-  $scope.currentUser = UserService.currentUser;
-  console.log('!!!!!!',$scope.currentUser)
 
-  // $scope.$watchCollection('UserService',function(){
-  //   console.log('user change occurred')
-  //   $scope.currentUser = UserService.currentUser;
-  // })
+  $scope.currentUser = UserService.currentUser;
 
   $scope.userLogin = function(){
-    console.log($scope.user)
     $scope.UserService.login($scope.user.email,$scope.user.password,function(err,data){
       console.log('call to UserService login',data)
       if(err){
@@ -22,8 +16,12 @@ PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','Al
       }else{
         console.log('unable to login')
       }
-
     })
-    $location.path('/')
+    $mdDialog.hide();
+    Materialize.toast('Hello, you are now logged in!', 4000,'hello')
   }
+  $scope.$watchCollection('UserService',function(){
+    console.log('user change occurred')
+    $scope.currentUser = UserService.currentUser;
+  })
 }]);
