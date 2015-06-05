@@ -6,7 +6,7 @@
       <ul class="left hide-on-med-and-down">
         <li><a ng-href='/' class='nav-logo center'>FullCountNews</a></li>
       </ul>
-      <ul ng-repeat='new in news | limitTo: 1' ng-show='currentUser' ng-if='$root.isMobile' class='ticker'><li><a href="#" class="brand-logo center nav-headline" ng-click='showDialog("headline",new)'>{{new.title | limitTo: 40}}</a></li></ul>
+      <ul ng-repeat='new in news | limitTo: 1' ng-show='currentUser' ng-if='$root.isMobile' class='ticker'><li><a href="#" class="brand-logo center nav-headline" ng-click='showDialog("headline",new)'>{{new.title | limitTo: 25}}</a></li></ul>
       <ul ng-repeat='new in news | limitTo: 1' ng-show='currentUser' ng-if='!$root.isMobile' class='ticker'><li><a href="#" class="brand-logo center nav-headline" ng-click='showDialog("headline",new)'>{{new.title | limitTo:70}}</a></li></ul>
       <ul ng-hide='currentUser'>
         <li class="brand-logo center nav-headline">FullCountNews Ticker</li>

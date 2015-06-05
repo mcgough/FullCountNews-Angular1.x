@@ -2,18 +2,18 @@
 
 /*navar*/
 
-.ticker.ng-enter {
+/*.ticker.ng-enter {
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
-  -webkit-animation-name: slideInRight;
-  animation-name: slideInRight;
-}
-.ticker.ng-leave {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}*/
+/*.ticker.ng-leave {
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
   -webkit-animation-name: slideOutLeft;
   animation-name: slideOutLeft;
-}
+}*/
 .nav-logo {
   font-size: 25px !important;
   margin-left: -15px;
@@ -74,7 +74,7 @@ a {
 
 @media (max-width: 600px) {
   .nav-headline {
-    font-size: 10px !important;
+    font-size: 13px !important;
   }
   .show-player-name {
     font-size: 20px !important;

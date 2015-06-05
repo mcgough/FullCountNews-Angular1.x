@@ -16,7 +16,7 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
 
   //loads users players and updates their stats
   $scope.loadUserList = function(){
-    $scope.loading = true;
+    // $scope.loading = true;
     $http.get('/api/userlist/updateUserlistStats').success(function(data){
       $scope.userPlayers = data;
       $scope.userPlayers.forEach(function(player,index){
@@ -51,11 +51,11 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
         }
       }
     })
-    $scope.loading = false;
+    // $scope.loading = false;
   })
 }
-
   $scope.loadUserList();
+
 
 
   //autocomplete function
@@ -88,7 +88,6 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
 
   //finds player in db and saves to userlist
   $scope.findPlayer = function(){
-    console.log($scope.searchText.split(' '))
     $http.get('/api/playerdb/getAllPlayers').success(function(data){
       $scope.players = data;
       var first = $scope.searchText.split(' ')[0].toLowerCase();
