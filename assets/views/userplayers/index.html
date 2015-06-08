@@ -12,7 +12,7 @@
 <!--   </div>
 </div> -->
 <div class="row">
-  <div class='col s8 offset-s2'>
+  <div class='col s8 offset-s2 autocomplete-row'>
     <form ng-click='findPlayer()'>
       <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item.firstName + ' ' + item.lastName" md-selected-item-change='findPlayer()' placeholder='Search for a player'  md-autofocus class='autocomplete-form z-depth-2'>
         <span md-highlight-text="searchText">{{item.firstName | properCase}} {{item.lastName | properCase}}</span>
@@ -21,7 +21,7 @@
   </div>
 </div>
 <div class='row'>
-  <div class='col m6 col s12'>
+  <div class='col m6 col s12 user-player-index-list'>
     <!-- <h3 class='center'>Players</h3> -->
     <ul class="collection with-header card card-content z-depth-2" ng-repeat='load in loadList'>
       <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->

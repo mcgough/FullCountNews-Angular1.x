@@ -1,5 +1,5 @@
 PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','AlertService','$location','$mdDialog','$mdToast',function($scope,$resource,UserService,AlertService,$location,$mdDialog,$mdToast){
-
+  console.log('login connected')
 
   $scope.UserService = UserService;
 
@@ -17,7 +17,7 @@ PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','Al
         console.log('unable to login')
       }
     })
-    $mdDialog.hide();
+    $location.path('/')
     Materialize.toast('Hello, you are now logged in!', 4000,'hello')
   }
   $scope.$watchCollection('UserService',function(){

@@ -17,19 +17,20 @@
 
         <li><a href="/following" ng-if='currentUser'>Lineup</a></li>
 
-        <li><a href='#' ng-hide='currentUser' ng-click='showDialog("login")'>LogIn</a></li>
-        <li><a href='/signup' ng-hide='currentUser'>SignUp</a></li>
-        <li><a href='/' ng-click='logout()' ng-show='currentUser'>LogOut</a></li>
+        <li><a href='/login' ng-hide='currentUser' class='nav-links'>LogIn</a></li>
+        <li><a href='/signup' ng-hide='currentUser' class='nav-links'>SignUp</a></li>
+        <li><a href='/' ng-click='logout()' ng-show='currentUser' class='nav-links'>LogOut</a></li>
+        <li><a href='/about'>About</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a ng-href='/' class='nav-logo'>FullCountNews</a></li>
         <li><hr></li>
-        <li><a ng-href="/following" ng-show='currentUser' class='sidenav-a'>Lineup</a></li>
-        <li><a ng-href='/headlines' ng-show='currentUser' class='sidenav-a'>League News</a></li>
-        <li><a ng-href='#'  ng-click='showDialog("login")' ng-hide='currentUser' class='sidenav-a'>LogIn</a></li>
+        <li><a ng-href="/following" ng-show='currentUser' class='sidenav-a nav-links'>Lineup</a></li>
+        <li><a ng-href='/headlines' ng-show='currentUser' class='sidenav-a nav-links'>League News</a></li>
+        <li><a ng-href='#'  ng-click='showDialog("login")' ng-hide='currentUser' class='sidenav-a nav-links'>LogIn</a></li>
         <li><a ng-href='/signup' ng-hide='currentUser' class='sidenav-a'>SignUp</a></li>
-        <li><a ng-href='/' ng-click='logout()' ng-show='currentUser' class='sidenav-a'>LogOut</a></li>
-        <li><a ng-href='#' class='sidenav-a'>About</a></li>
+        <li><a ng-href='/' ng-click='logout()' ng-show='currentUser' class='sidenav-a nav-links'>LogOut</a></li>
+        <li><a ng-href='/about' class='sidenav-a nav-links'>About</a></li>
         <!-- <li><a href="mobile.html">Mobile</a></li> -->
       </ul>
     </div>

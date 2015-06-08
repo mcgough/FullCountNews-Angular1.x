@@ -1,4 +1,13 @@
-
+html,
+body {
+  height: 100%;
+  background-color: #cfd8dc;
+  font-family: 'Noto Sans', sans-serif;
+}
+.container {
+  height: 100%;
+  background-color: #cfd8dc;
+}
 
 /*navar*/
 
@@ -18,6 +27,7 @@
   font-size: 25px !important;
   margin-left: -15px;
   color: white !important;
+  font-family: 'Lora', serif;
 }
 .nav-headline {
   font-size: 20px !important;
@@ -29,11 +39,15 @@
   font-size: 19px !important;
   color: white !important;
 }
+.nav-links {
+  font-family: 'Lora', serif;
+}
 
 /* welcome page */
 
 .welcome-header {
   margin-top: 2em;
+  font-family: 'Lora', serif;
 }
 .welcome-subheader {
   margin-bottom: 30px;
@@ -49,6 +63,20 @@
 }
 .signup {
   background-color: green;
+}
+
+/*auth*/
+
+.signup-card {
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+/*Userplayer list*/
+
+.user-player-index-list {
+  overflow: auto;
 }
 .headshot {
   float: left;
@@ -87,6 +115,15 @@ a {
   }
   .headshot {
     margin-left: -20px;
+  }
+}
+
+@media (max-width: 325px) {
+  .signup-card {
+    width: 100%;
+  }
+  .row .col{
+    padding: 0;
   }
 }
 

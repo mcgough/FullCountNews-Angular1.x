@@ -19,6 +19,7 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     // $scope.loading = true;
     $http.get('/api/userlist/updateUserlistStats').success(function(data){
       $scope.userPlayers = data;
+      $scope.userPlayers.reverse();
       $scope.userPlayers.forEach(function(player,index){
         if(player.alert.indexOf('DL') !== -1){
           player.injured = true
@@ -50,11 +51,10 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
 
         }
       }
-      $scope.loadList = $scope.userPlayers
+      $scope.loadList = $scope.userPlayers;
     })
   })
 }
-  $scope.loadUserList();
 
 
 
@@ -155,4 +155,6 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
   $http.get('/api/headline/getHeadlines').success(function(){
     console.log('headlines washed and loaded')
   })
+
+  $scope.loadUserList();
 }])

@@ -3,7 +3,8 @@
   <div class='col m6 col s12'>
     <ul class="collection with-header card card-content z-depth-3">
       <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
-      <li class="collection-item"><img class='headshot' src='{{player.img}}'><h4 class='show-player-name'>{{player.firstName | properCase}} {{player.lastName | properCase}}</h4> {{player.teamPosition}} <br>{{player.alert}}<button type="button" class="waves-effect waves-light btn red right" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button><br><br><br>
+      <li class="collection-item"><img class='headshot' src='{{player.img}}'><h4 class='show-player-name'>{{player.firstName | properCase}} {{player.lastName | properCase}}</h4> {{player.teamPosition}} <br>{{player.alert}}<a ng-href='/following' type="button" class="waves-effect waves-light btn blue right">Lineup</a>
+          <button type="button" class="waves-effect waves-light btn red right" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button><br><br><br>
         <table class="responsive-table">
           <thead>
             <tr>
@@ -67,7 +68,7 @@
     </ul>
   </div>
 <div class='col m6 col s12'>
-    <ul class="collection with-header card card-content z-depth-3" ng-repeat='new in news'>
+    <ul class="collection with-header card card-content z-depth-3" ng-repeat='new in news | limitTo: 3'>
   <!--     <div class='card'>
         <div class='card-content'> -->
           <li class="collection-item">
