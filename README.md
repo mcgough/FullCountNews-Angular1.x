@@ -1,10 +1,10 @@
-
+https://fullcountnews.herokuapp.com/
 # PlayerTracker
 
 a [Sails](http://sailsjs.org) application
 =======
 # FullCount
-https://fullcountnews.herokuapp.com/
+
 Built using MEAN stack:
 MongoDB,
 SailsJs,
