@@ -4,7 +4,7 @@ https://fullcountnews.herokuapp.com/
 a [Sails](http://sailsjs.org) application
 =======
 # FullCount
-
+Timeline: 1 week
 Built using MEAN stack:
 MongoDB,
 SailsJs,
