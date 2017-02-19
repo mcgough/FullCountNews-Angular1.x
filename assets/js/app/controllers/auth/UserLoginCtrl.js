@@ -1,5 +1,4 @@
 PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','AlertService','$location','$mdDialog','$mdToast',function($scope,$resource,UserService,AlertService,$location,$mdDialog,$mdToast){
-  console.log('login connected')
 
   $scope.UserService = UserService;
 
@@ -7,21 +6,21 @@ PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','Al
 
   $scope.userLogin = function(){
     $scope.UserService.login($scope.user.email,$scope.user.password,function(err,data){
-      console.log('call to UserService login',data)
+      console.log('call to UserService login',data);
       if(err){
         console.log(err);
         alert('unknown error');
       }else if(data && data.result){
-        AlertService.add('success','You are now logged in')
+        AlertService.add('success','You are now logged in');
       }else{
-        console.log('unable to login')
+        console.log('unable to login');
       }
-    })
-    $location.path('/')
-    Materialize.toast('Hello, you are now logged in!', 4000,'hello')
-  }
+    });
+    $location.path('/');
+    Materialize.toast('Hello, you are now logged in!', 4000,'hello');
+  };
   $scope.$watchCollection('UserService',function(){
-    console.log('user change occurred')
+    console.log('user change occurred');
     $scope.currentUser = UserService.currentUser;
-  })
+  });
 }]);

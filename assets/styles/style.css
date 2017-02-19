@@ -9,20 +9,6 @@ body {
   background-color: #cfd8dc;
 }
 
-/*navar*/
-
-/*.ticker.ng-enter {
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-}*/
-/*.ticker.ng-leave {
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-name: slideOutLeft;
-  animation-name: slideOutLeft;
-}*/
 .nav-logo {
   font-size: 25px !important;
   margin-left: -15px;
@@ -30,7 +16,8 @@ body {
   font-family: 'Lora', serif;
 }
 .nav-headline {
-  font-size: 20px !important;
+  font-size: 16px !important;
+  overflow: hidden;
 }
 .side-nav {
   background-color: #2196f3  !important;
@@ -74,20 +61,42 @@ body {
 
 
 /*Userplayer list*/
+.autocomplete-form {
+  margin-top: 20px;
+}
 
 .user-player-index-list {
   overflow: auto;
 }
+// .collection .collection-item {
+//   padding: 0;
+// }
+.collection {
+  border: none;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.collection.with-header .collection-item {
+  padding: 0;
+  position: relative;
+}
+// .collection.with-header .collection-item a {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   background: transparent;
+// }
 .headshot {
   float: left;
-  height: 125px;
-  width: 95px;
-  border-radius: 5%;
+  width: 40%;
   margin-right: 15px;
-  margin-bottom: 12px;
 }
-.autocomplete-form {
-  margin-top: 20px;
+.card-player-name {
+  margin: 0;
 }
 
 a {

@@ -29,9 +29,8 @@ module.exports = {
         var headlines = results.map(function(index,element){
           return $(this).text();
         }).get();
-        console.log(headlines)
         //gets main text of headlines
-        var data = $('.main-content .player-news-content > p')
+        var data = $('.main-content .player-news-content > p');
         var mainText = data.map(function(index,element){
           return $(this).text();
         }).get();
@@ -41,19 +40,18 @@ module.exports = {
         for(var i = 0; i < headlines.length; i++){
           if(i % 3 === 0){
             Headline.create({title:headlines[i],body:mainText[counter] + '\n' + mainText[counter + 1]}).then(function(data){
-              console.log('headline saved');
-            })
+            });
             counter += 2;
           }
         }
       }
-    })
+    });
     request('http://www.rotoworld.com/playernews/mlb/baseball',function(error,response,data){
       var $ = cheerio.load(data);
       var sec1 = $('.pb .report');
       var report = sec1.map(function(index,element){
         return $(this).text().trim();
-      }).get()
+      }).get();
       var sec2 = $('.pb .impact');
       var impact = sec2.map(function(index,element){
         return $(this).text().trim();
@@ -61,12 +59,12 @@ module.exports = {
       for(var i = 0; i < report.length; i++){
         Headline.create({title:report[i],body:impact[i]}).then(function(data){
           console.log('roto headline saved');
-        })
+        });
       }
-    })
+    });
     Headline.query(function(data){
       res.send(data);
-    })
+    });
   },
 
   getUserPlayerSpecifcNews: function(req,res){
@@ -77,13 +75,11 @@ module.exports = {
         var headlinesPlayer = results.map(function(index,element){
           return $(this).text();
         }).get();
-        var data = $('.player-news-content > p')
+        var data = $('.player-news-content > p');
 
         var mainText = data.map(function(index,element){
           return $(this).text();
         }).get();
-        // console.log('results!!!!!!!!!!!',headlinesPlayer)
-        // console.log('maintext!!!!!!!!!!!!!',mainText)
         playerNews = [];
         var counter = 0;
         for(var i = 0; i < headlinesPlayer.length; i++){
@@ -92,10 +88,9 @@ module.exports = {
             counter += 2;
           }
         }
-        // console.log('!!!!!!!!!!!!!!!!!!!!!',playerNews)
-        res.send(playerNews)
-      })
-    })
+        res.send(playerNews);
+      });
+    });
   }
 
 

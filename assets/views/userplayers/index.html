@@ -1,67 +1,30 @@
-<!-- <div class="row" ng-hide='currentUser'>
-  <div class="col m6 offset-m3 offset-3">
-    <ul class="collection with-header card card-content z-depth-1" ng-repeat='new in news'>
-      <li class="collection-item">
-        <a href='#' ng-click='showDialog(new)'><b>{{new.title | limitTo: 60}}</b></a>
-      </li>
-    </ul>
-  </div>
-</div> -->
 
-
-<!--   </div>
-</div> -->
 <div class="row">
   <div class='col s8 offset-s2 autocomplete-row'>
-    <form ng-click='findPlayer()'>
-      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item.firstName + ' ' + item.lastName" md-selected-item-change='findPlayer()' placeholder='Search for a player'  md-autofocus class='autocomplete-form z-depth-2'>
-        <span md-highlight-text="searchText">{{item.firstName | properCase}} {{item.lastName | properCase}}</span>
-      </md-autocomplete>
-    </form>
+    <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item.name" md-selected-item-change='findPlayer(item)' placeholder='Search for a player'  md-autofocus class='autocomplete-form z-depth-2'>
+      <span md-highlight-text="searchText">{{ item.name }}</span>
+    </md-autocomplete>
   </div>
 </div>
 <div class='row'>
   <div class='col m6 col s12 user-player-index-list'>
     <!-- <h3 class='center'>Players</h3> -->
-    <ul class="collection with-header card card-content z-depth-2" ng-repeat='load in loadList'>
-      <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
-      <a ng-href='/following/{{load.id}}'>
-      <li class="collection-item">
-        <img class='headshot' src='{{load.img}}'>
-        <h4 class='card-player-name'>{{load.firstName | properCase}} {{load.lastName | properCase}}</h4>
-        </a> {{load.teamPosition}}
-        <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-if='load.fire'><i class='fa fa-fire'></i></button>
-        <button type="button" class="waves-effect waves-light btn-floating blue right player-delete" ng-if='load.ice'><i class='fa fa-asterisk'></i></button>
-        <button type="button" class="waves-effect waves-light btn-floating yellow right player-delete" ng-if='load.injured'><i class='fa fa-exclamation-triangle'></i></button>
-
-<!--         <table class="responsive-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th ng-hide="player.pitcher">Runs</th>
-              <th ng-show="player.pitcher">K's</th>
-              <th ng-hide='player.pitcher'>HR's</th>
-              <th ng-show='player.pitcher'>W's</th>
-              <th ng-hide='player.pitcher'>RBI's</th>
-              <th ng-show='player.pitcher'>Sv's</th>
-              <th ng-hide='player.pitcher'>SB's</th>
-              <th ng-show='player.pitcher'>ERA</th>
-              <th ng-hide='player.pitcher'>AVG</th>
-              <th ng-show='player.pitcher'>Whip</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>2015 Totals</th>
-              <td>{{player.runsK}}</td>
-              <td>{{player.hrW}}</td>
-              <td>{{player.rbiSv}}</td>
-              <td>{{player.sbEra}}</td>
-              <td>{{player.avgWhip}}</td>
-            </tr>
-          </tbody>
-        </table> -->
-      </li>
+    <ul class="collection with-header card card-content z-depth-2" ng-repeat='player in playerList'>
+      <a class="player-link" ng-href='/following/{{player.id}}'>
+        <li class="collection-item">
+            <img class='headshot' src='{{player.img}}'>
+            <div class="player-details">
+              <h4 class='card-player-name'>{{player.name}}</h4>
+              <div class="team-position">
+                <p>{{player.team}}</p>
+                <p>{{player.position}}</p>
+              </div>
+              <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-if='load.fire'><i class='fa fa-fire'></i></button>
+              <button type="button" class="waves-effect waves-light btn-floating blue right player-delete" ng-if='load.ice'><i class='fa fa-asterisk'></i></button>
+              <button type="button" class="waves-effect waves-light btn-floating yellow right player-delete" ng-if='load.injured'><i class='fa fa-exclamation-triangle'></i></button>
+            </div>
+        </li>
+      </a>
     </ul>
   </div>
   <div class='col m6 col s12' ng-if='!$root.isMobile'>

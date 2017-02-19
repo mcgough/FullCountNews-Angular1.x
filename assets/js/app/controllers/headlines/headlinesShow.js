@@ -8,9 +8,9 @@ PlayerTracker.controller('HeadlinesShowCtrl',['$scope','$resource','$http','$mdD
     $scope.loading = true;
     Headline.query({},function(data){
       $scope.news = data;
-    })
+    });
     $scope.loading = false;
-  }
+  };
   $scope.getHeadlines();
 
   $scope.showDialog = function($event) {
@@ -25,12 +25,12 @@ PlayerTracker.controller('HeadlinesShowCtrl',['$scope','$resource','$http','$mdD
          headline: $event
        },
        controller: 'DialogController'
-    })
+    });
   };
 
   $http.get('/api/headline/getHeadlines').success(function(){
-    console.log('headlines washed and loaded')
-  })
+    console.log('headlines washed and loaded');
+  });
 
   //calls getHeadlines() in HeadlineController
 

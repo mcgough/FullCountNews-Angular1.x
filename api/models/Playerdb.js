@@ -8,9 +8,10 @@
 module.exports = {
 
   attributes: {
-    firstName: 'string',
-    lastName: 'string',
-    teamPosition: 'string',
+    url: 'string',
+    name: 'string',
+    team: 'string',
+    position: 'string',
     runsK: 'string',
     hrW: 'string',
     rbiSv: 'string',
