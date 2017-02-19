@@ -64,7 +64,6 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
   $scope.loadUserList = function() {
     $http.get('/api/userlist/updateUserlistStats')
       .success(function(response) {
-        console.log('loadUserList:', JSON.parse(response[0].player));
         var playerList = response.map(function(obj) {
           return JSON.parse(obj.player);
         });

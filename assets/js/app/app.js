@@ -2,7 +2,9 @@ var PlayerTracker = angular.module('PlayerTracker',['ngRoute','ngResource','ngAn
 
 PlayerTracker.run(['$rootScope','AlertService','UserService',function($rootScope,AlertService,UserService){
   UserService.check(function(err,data){
-    console.log('user',data,err);
+    if (data) {
+      console.log('online');
+    }
   });
   window.mobilecheck = function() {
     var check = false;

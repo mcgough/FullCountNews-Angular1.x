@@ -10,14 +10,13 @@
   <div class='col m6 col s12 user-player-index-list'>
     <!-- <h3 class='center'>Players</h3> -->
     <ul class="collection with-header card card-content z-depth-2" ng-repeat='player in playerList'>
-      <a class="player-link" ng-href='/following/{{player.id}}'>
+      <a class="player-link" ng-href='/following/{{ player.id }}'>
         <li class="collection-item">
             <img class='headshot' src='{{player.img}}'>
             <div class="player-details">
               <h4 class='card-player-name'>{{player.name}}</h4>
               <div class="team-position">
-                <p>{{player.team}}</p>
-                <p>{{player.position}}</p>
+                <p>{{player.team}} - {{player.position}}</p>
               </div>
               <button type="button" class="waves-effect waves-light btn-floating red right player-delete" ng-if='load.fire'><i class='fa fa-fire'></i></button>
               <button type="button" class="waves-effect waves-light btn-floating blue right player-delete" ng-if='load.ice'><i class='fa fa-asterisk'></i></button>

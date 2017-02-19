@@ -3,9 +3,18 @@
   <div class='col m6 col s12'>
     <ul class="collection with-header card card-content z-depth-3">
       <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
-      <li class="collection-item"><img class='headshot' src='{{player.img}}'><h4 class='show-player-name'>{{player.firstName | properCase}} {{player.lastName | properCase}}</h4> {{player.teamPosition}} <br>{{player.alert}}<a ng-href='/following' type="button" class="waves-effect waves-light btn blue right">Lineup</a>
-          <button type="button" class="waves-effect waves-light btn red right" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button><br><br><br>
-        <table class="responsive-table">
+      <li class="collection-item">
+        <div class="details">
+          <img class='headshot' src='{{player.img}}'>
+          <div class="player-specifics">
+            <h4 class='card-player-name'>{{player.name}}</h4>
+            <p class="team-position">{{player.team}} - {{player.position}}</p>
+            <p>{{player.alert}}</p>
+            <a ng-href='/following' type="button" class="waves-effect waves-light btn blue right">Lineup</a>
+            <button type="button" class="waves-effect waves-light btn red right" ng-click='deletePlayer(player.id)'><i class='fa fa-trash-o'></i></button>
+          </div>
+        </div>
+        <table class="">
           <thead>
             <tr>
               <th></th>
@@ -23,13 +32,14 @@
           </thead>
           <tbody>
             <tr>
-              <th>2015 Totals</th>
+              <th>2016 Totals</th>
               <td>{{player.runsK}}</td>
               <td>{{player.hrW}}</td>
               <td>{{player.rbiSv}}</td>
               <td>{{player.sbEra}}</td>
               <td>{{player.avgWhip}}</td>
             </tr>
+            <!--
             <tr>
               <th>Past 7 Days</th>
               <td>{{player.sevRunsK}}</td>
@@ -61,7 +71,7 @@
               <td>{{player.lastYearRbiSv}}</td>
               <td>{{player.lastYearSbEra}}</td>
               <td>{{player.lastYearAvgWhip}}</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </li>

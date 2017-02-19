@@ -69,27 +69,28 @@ module.exports = {
 
   getUserPlayerSpecifcNews: function(req,res){
     Userlist.find({id:req.params.id}).then(function(data){
-      request('http://www.fantasypros.com/mlb/news/' + data[0].firstName + '-' + data[0].lastName + '.php',function(error,response,data){
-        var $ = cheerio.load(data);
-        var results = $('.player-news-header a');
-        var headlinesPlayer = results.map(function(index,element){
-          return $(this).text();
-        }).get();
-        var data = $('.player-news-content > p');
+      console.log('getUserPlayerSpecifcNews',data);
+      // request('http://www.fantasypros.com/mlb/news/' + data[0].firstName + '-' + data[0].lastName + '.php',function(error,response,data){
+      //   var $ = cheerio.load(data);
+      //   var results = $('.player-news-header a');
+      //   var headlinesPlayer = results.map(function(index,element){
+      //     return $(this).text();
+      //   }).get();
+      //   var data = $('.player-news-content > p');
 
-        var mainText = data.map(function(index,element){
-          return $(this).text();
-        }).get();
-        playerNews = [];
-        var counter = 0;
-        for(var i = 0; i < headlinesPlayer.length; i++){
-          if(i % 2 === 0){
-            playerNews.push({title:headlinesPlayer[i],body:mainText[counter] + '\n' + mainText[counter + 1]});
-            counter += 2;
-          }
-        }
-        res.send(playerNews);
-      });
+      //   var mainText = data.map(function(index,element){
+      //     return $(this).text();
+      //   }).get();
+      //   playerNews = [];
+      //   var counter = 0;
+      //   for(var i = 0; i < headlinesPlayer.length; i++){
+      //     if(i % 2 === 0){
+      //       playerNews.push({title:headlinesPlayer[i],body:mainText[counter] + '\n' + mainText[counter + 1]});
+      //       counter += 2;
+      //     }
+      //   }
+      //   res.send(playerNews);
+      // });
     });
   }
 

@@ -4,8 +4,10 @@ body {
   background-color: #cfd8dc;
   font-family: 'Noto Sans', sans-serif;
 }
+nav .nav-wrapper {
+  overflow: hidden;
+}
 .container {
-  height: 100%;
   background-color: #cfd8dc;
 }
 
@@ -14,6 +16,7 @@ body {
   margin-left: -15px;
   color: white !important;
   font-family: 'Lora', serif;
+  overflow: hidden;
 }
 .nav-headline {
   font-size: 16px !important;
@@ -97,6 +100,10 @@ body {
 }
 .card-player-name {
   margin: 0;
+}
+.team-position p {
+  margin: 0;
+  font-size: .85em;
 }
 
 a {

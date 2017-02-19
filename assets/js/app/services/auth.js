@@ -43,7 +43,7 @@ PlayerTracker.factory('UserService', ['$http', function($http){
       this.currentUser = false;
       $http.delete('/api/auth')
       .success(function(data){
-        console.log('delete',data)
+        console.log('delete',data);
         callback(null, data);
       })
       .error(function(err){
@@ -51,6 +51,6 @@ PlayerTracker.factory('UserService', ['$http', function($http){
       });
     }
 
-  }
+  };
 
 }]);

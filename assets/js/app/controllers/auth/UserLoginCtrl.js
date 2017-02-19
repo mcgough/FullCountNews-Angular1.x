@@ -6,7 +6,6 @@ PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','Al
 
   $scope.userLogin = function(){
     $scope.UserService.login($scope.user.email,$scope.user.password,function(err,data){
-      console.log('call to UserService login',data);
       if(err){
         console.log(err);
         alert('unknown error');
@@ -20,7 +19,6 @@ PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','Al
     Materialize.toast('Hello, you are now logged in!', 4000,'hello');
   };
   $scope.$watchCollection('UserService',function(){
-    console.log('user change occurred');
     $scope.currentUser = UserService.currentUser;
   });
 }]);

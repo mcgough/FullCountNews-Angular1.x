@@ -2,45 +2,45 @@ PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserServ
 
   $scope.currentUser = UserService.currentUser;
 
-  console.log($routeParams);
+  $scope.$watchCollection('UserService',function(){
+    $scope.currentUser = UserService.currentUser;
+    if ($scope.currentUser === false) {
+      $location.path('/');
+    }
+  });
 
-   $scope.$watchCollection('UserService',function(){
-      $scope.currentUser = UserService.currentUser;
-      if($scope.currentUser==false){
-        $location.path('/')
-      }
-    });
-
-  $log.info('params!!!!',$routeParams.id);
-
-  // var Player = $resource('/api/userlist/:id');
-  // var Db = $resource('/api/playerdb/:id');
   var Headline = $resource('/api/headline/:id');
 
-  $http.get('/api/userlist/' + $routeParams.id).success(function(data){
-    $scope.player = data
-    // $scope.newds = [];
-    Headline.query({},function(data){
-    var headlines = data;
-      for(var j = 0; j < headlines.length; j++){
-        if(headlines[j].title.toLowerCase().indexOf($scope.player.lastName) !== -1){
-          $scope.news.push(headlines[j]);
-        }
-      }
-    })
-  })
+  $http.get('/api/playerdb/' + $routeParams.id).success(function(data){
+    var player = data;
+    if (player.position.indexOf('P') > -1) {
+      player.pitcher = true;
+    } else {
+      player.pitcher = false;
+    }
+    $scope.player = player;
 
-  $http.get('/api/headline/getUserPlayerSpecifcNews/' + $routeParams.id).success(function(data){
-    $scope.news = data
-  })
+    // Headline.query({},function(data){
+    //   var headlines = data;
+    //   for(var j = 0; j < headlines.length; j++){
+    //     if(headlines[j].title.toLowerCase().indexOf($scope.player.lastName) !== -1){
+    //       $scope.news.push(headlines[j]);
+    //     }
+    //   }
+    // });
+  });
+
+  // $http.get('/api/headline/getUserPlayerSpecifcNews/' + $routeParams.id).success(function(data){
+  //   $scope.news = data
+  // })
 
   $scope.deletePlayer = function(playerId){
     $http.delete('/api/userlist/' + playerId).success(function(data){
-      $location.path('/following')
-    })
-  }
+      $location.path('/following');
+    });
+  };
 
 
 
 
-}])
+}]);

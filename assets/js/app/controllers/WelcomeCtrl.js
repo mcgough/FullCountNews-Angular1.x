@@ -10,8 +10,9 @@ PlayerTracker.controller('WelcomeCtrl',['$scope','$resource','$http','UserServic
     });
 
   $scope.showDialog = function(type,$event) {
+    var parentEl;
     if(type === 'headline' && $scope.currentUser){
-      var parentEl = angular.element(document.body);
+      parentEl = angular.element(document.body);
       console.log(parentEl);
       console.log($event);
        $mdDialog.show({
@@ -22,9 +23,8 @@ PlayerTracker.controller('WelcomeCtrl',['$scope','$resource','$http','UserServic
          },
          controller: 'DialogController'
       });
-    }else if(type === 'login' && !$scope.currentUser){
-      var parentEl = angular.element(document.body);
-      console.log('working!!!!!');
+    }else if (type === 'login' && !$scope.currentUser) {
+      parentEl = angular.element(document.body);
       $mdDialog.show({
         parent: parentEl,
         templateUrl: '/views/auth/login.html',
