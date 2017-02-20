@@ -54,7 +54,7 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
         var player = response,
             user = new Player();
         user.$save({userId:$scope.currentUser.id,player:player}, function(response) {
-          $scope.loadUserList();
+          $scope.playerList.push(player);
         });
       });
     }
@@ -64,6 +64,7 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
   $scope.loadUserList = function() {
     $http.get('/api/userlist/updateUserlistStats')
       .success(function(response) {
+        console.log(response);
         var playerList = response.map(function(obj) {
           return JSON.parse(obj.player);
         });

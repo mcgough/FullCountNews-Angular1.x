@@ -10,7 +10,7 @@ var request = require('request');
 module.exports = {
 
   updateUserlistStats: function(req,res){
-    if (req.session.user.id) {
+    if (req.session.user) {
       Userlist.find({userId: req.session.user.id})
         .then(function(data){
           res.send(data);
@@ -171,6 +171,9 @@ module.exports = {
 
       // });
     // });
+  },
+  deletePlayer: function(req,res) {
+    console.log('!!!!',req.params);
   }
 };
 

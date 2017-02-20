@@ -11,10 +11,8 @@ PlayerTracker.controller('WelcomeCtrl',['$scope','$resource','$http','UserServic
 
   $scope.showDialog = function(type,$event) {
     var parentEl;
-    if(type === 'headline' && $scope.currentUser){
+    if (type === 'headline' && $scope.currentUser) {
       parentEl = angular.element(document.body);
-      console.log(parentEl);
-      console.log($event);
        $mdDialog.show({
          parent: parentEl,
          templateUrl: '/views/headlines/headlineDialog.html',
@@ -23,7 +21,7 @@ PlayerTracker.controller('WelcomeCtrl',['$scope','$resource','$http','UserServic
          },
          controller: 'DialogController'
       });
-    }else if (type === 'login' && !$scope.currentUser) {
+    } else if (type === 'login' && !$scope.currentUser) {
       parentEl = angular.element(document.body);
       $mdDialog.show({
         parent: parentEl,

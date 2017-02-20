@@ -13,21 +13,21 @@ PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserServ
 
   $http.get('/api/playerdb/' + $routeParams.id).success(function(data){
     var player = data;
+
     if (player.position.indexOf('P') > -1) {
       player.pitcher = true;
     } else {
       player.pitcher = false;
     }
+
     $scope.player = player;
 
-    // Headline.query({},function(data){
-    //   var headlines = data;
-    //   for(var j = 0; j < headlines.length; j++){
-    //     if(headlines[j].title.toLowerCase().indexOf($scope.player.lastName) !== -1){
-    //       $scope.news.push(headlines[j]);
-    //     }
-    //   }
-    // });
+    $http.get('/api/headline/getUserPlayerSpecifcNews',{params:{
+      player: player.name
+    }})
+    .success(function(data) {
+      $scope.news = data;
+    });
   });
 
   // $http.get('/api/headline/getUserPlayerSpecifcNews/' + $routeParams.id).success(function(data){
@@ -35,8 +35,13 @@ PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserServ
   // })
 
   $scope.deletePlayer = function(playerId){
-    $http.delete('/api/userlist/' + playerId).success(function(data){
-      $location.path('/following');
+    console.log(playerId);
+    $http.get('/api/userlist/deletePlayer', {params:{
+      player: 'hello?'
+    }})
+    .success(function(data) {
+      console.log(data);
+      // $location.path('/following');
     });
   };
 

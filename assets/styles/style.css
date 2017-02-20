@@ -22,7 +22,8 @@ nav .nav-wrapper {
   font-size: 16px !important;
   overflow: hidden;
 }
-.side-nav {
+#mobile-demo.side-nav {
+  top: 64px;
   background-color: #2196f3  !important;
 }
 .sidenav-a {
@@ -111,6 +112,10 @@ a {
 }
 .card-player-name {
   font-size: 20px;
+}
+
+.player-news {
+  padding: 10px !important;
 }
 
 

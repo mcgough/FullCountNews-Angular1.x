@@ -1,6 +1,6 @@
 $(function(){
   $(".button-collapse").sideNav({
-    menuWidth: 200,
+    menuWidth: 225,
     edge: 'left',
     closeOnClick: true
   });
