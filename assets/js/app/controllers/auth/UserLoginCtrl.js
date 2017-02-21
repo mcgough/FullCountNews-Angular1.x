@@ -11,11 +11,11 @@ PlayerTracker.controller('UserLoginCtrl',['$scope','$resource','UserService','Al
         alert('unknown error');
       }else if(data && data.result){
         AlertService.add('success','You are now logged in');
+        $location.path('/following');
       }else{
         console.log('unable to login');
       }
     });
-    $location.path('/');
     Materialize.toast('Hello, you are now logged in!', 4000,'hello');
   };
   $scope.$watchCollection('UserService',function(){
