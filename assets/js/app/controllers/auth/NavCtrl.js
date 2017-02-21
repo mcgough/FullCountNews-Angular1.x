@@ -8,22 +8,26 @@ PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','
   });
 
   var ticker = function(){
-    $scope.news = [{title:'Welcome to FullCountNews'}];
+    $scope.news = [{title:'Loading latest headlines...'}];
     var index = 0;
-    setInterval(function(){
-      $http.get('/api/headline').success(function(data){
-        // console.log('headlines:', ((new Date().getTime() / 1000 / 3600 * 60) - (Date.parse(data[0].updatedAt) / 1000 / 3600 * 60)) / 60);
-        $scope.news.push(data[index]);
-        $scope.news.shift(0);
-      });
-      if(index <= 29){
-        index++;
-      }else if(index === 30){
-        $scope.news = [{title:'Welcome to FullCountNews'}];
-        index = 0;
-      }
-    },8000);
+    $http.get('/api/headline/getHeadlines').then(function(data) {
+      setInterval(function(){
+        $http.get('/api/headline').success(function(data){
+          // console.log('headlines:', ((new Date().getTime() / 1000 / 3600 * 60) - (Date.parse(data[0].updatedAt) / 1000 / 3600 * 60)) / 60);
+          console.log(data);
+          $scope.news.push(data[index]);
+          $scope.news.shift(0);
+        });
+        if(index <= 29){
+          index++;
+        }else if(index === 30){
+          $scope.news = [{title:'Welcome to FullCountNews'}];
+          index = 0;
+        }
+      },8000);
+    });
   };
+
 
   ticker();
 
