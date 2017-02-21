@@ -12,9 +12,9 @@ var request = require('request');
 module.exports = {
 
   getHeadlines: function(req,res){
-    Headline.find({}).then(function(data) {
-      var olderThanTwelve = ((new Date().getTime() / 1000 / 3600 * 60) - (Date.parse(data[0].updatedAt) / 1000 / 3600 * 60)) / 60 > 12;
-      if (olderThanTwelve) {
+    // Headline.find({}).then(function(data) {
+    //   var olderThanTwelve = ((new Date().getTime() / 1000 / 3600 * 60) - (Date.parse(data[0].updatedAt) / 1000 / 3600 * 60)) / 60 > 12;
+    //   if (olderThanTwelve) {
         Headline.destroy().exec(function(err){
           if(err) {
             console.log('error',err);
@@ -69,8 +69,8 @@ module.exports = {
             });
           }
         });
-      }
-    });
+    //   }
+    // });
   },
 
   getUserPlayerSpecifcNews: function(req,res){
