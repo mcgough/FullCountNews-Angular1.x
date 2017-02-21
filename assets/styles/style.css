@@ -35,6 +35,9 @@ nav .nav-wrapper {
   top: 64px;
   background-color: #C8102E  !important;
 }
+nav .button-collapse {
+  margin-left: 10px;
+}
 .sidenav-a {
   font-size: 19px !important;
   color: white !important;
@@ -149,8 +152,18 @@ a {
   padding: 10px !important;
 }
 
-
+.md-dialog-container {
+  background: rgba(0,0,0,.25);
+}
 /*media queries*/
+@media screen and (max-width: 668px) {
+  #mobile-demo.side-nav {
+    top: 56px;
+  }
+  .signup-card {
+    width: 100%;
+  }
+}
 
 @media (max-width: 600px) {
   .nav-headline {
