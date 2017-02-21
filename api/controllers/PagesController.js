@@ -70,7 +70,7 @@ var loadDB = function(){
 };
 
 
-// loadDB();
+loadDB();
 
 
 module.exports = {
