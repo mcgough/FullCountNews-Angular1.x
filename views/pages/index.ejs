@@ -1,6 +1,6 @@
 
   <div class='navbar-fixed'>
-  <nav class='blue' ng-controller='NavCtrl'>
+  <nav class='' ng-controller='NavCtrl'>
     <div class="nav-wrapper navbar">
 
       <ul class="left hide-on-med-and-down">
@@ -11,7 +11,7 @@
       <ul ng-hide='currentUser'>
         <li class="brand-logo center nav-headline">FullCountNews Ticker</li>
       </ul>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu blue"></i></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       <!-- <ul class='right hide-on-med-and-down' ng-repeat='headline in headlines | limitTo: 1'><li>{{headline.title}}</li></ul> -->
       <ul class="right hide-on-med-and-down">
 
@@ -20,7 +20,7 @@
         <li><a href='/login' ng-hide='currentUser' class='nav-links'>LogIn</a></li>
         <li><a href='/signup' ng-hide='currentUser' class='nav-links'>SignUp</a></li>
         <li><a href='/' ng-click='logout()' ng-show='currentUser' class='nav-links'>LogOut</a></li>
-        <li><a href='/about'>About</a></li>
+        <!-- <li><a href='/about'>About</a></li> -->
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a ng-href='/' class='nav-logo'>FullCountNews</a></li>
@@ -30,7 +30,7 @@
         <li><a ng-href='#'  ng-click='showDialog("login")' ng-hide='currentUser' class='sidenav-a nav-links'>LogIn</a></li>
         <li><a ng-href='/signup' ng-hide='currentUser' class='sidenav-a'>SignUp</a></li>
         <li><a ng-href='/' ng-click='logout()' ng-show='currentUser' class='sidenav-a nav-links'>LogOut</a></li>
-        <li><a ng-href='/about' class='sidenav-a nav-links'>About</a></li>
+        <!-- <li><a ng-href='/about' class='sidenav-a nav-links'>About</a></li> -->
         <!-- <li><a href="mobile.html">Mobile</a></li> -->
       </ul>
     </div>

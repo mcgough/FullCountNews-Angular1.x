@@ -1,4 +1,4 @@
-PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','AlertService','$rootScope','$location','$mdDialog','$route','$mdToast',function($scope,UserService,$location,$http,AlertService,$rootScope,$location,$mdDialog,$route,$mdToast){
+PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','AlertService','$rootScope','$mdDialog','$route','$mdToast',function($scope,UserService,$location,$http,AlertService,$rootScope,$mdDialog,$route,$mdToast){
 
   $scope.UserService = UserService;
   // $scope.currentUser = UserService.currentUser
@@ -12,6 +12,7 @@ PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','
     var index = 0;
     setInterval(function(){
       $http.get('/api/headline').success(function(data){
+        // console.log('headlines:', ((new Date().getTime() / 1000 / 3600 * 60) - (Date.parse(data[0].updatedAt) / 1000 / 3600 * 60)) / 60);
         $scope.news.push(data[index]);
         $scope.news.shift(0);
       });
@@ -29,27 +30,25 @@ PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','
 
 
   $scope.showDialog = function(type,$event) {
+    var parentEl;
     if(type === 'headline' && $scope.currentUser){
-      var parentEl = angular.element(document.body);
-      console.log(parentEl);
-      console.log($event);
-       $mdDialog.show({
-         parent: parentEl,
-         // targetEvent: $event,
-         templateUrl: '/views/headlines/headlineDialog.html',
-         locals: {
-           headline: $event
-         },
-         controller: 'DialogController'
-      })
+      parentEl = angular.element(document.body);
+      $mdDialog.show({
+        parent: parentEl,
+        // targetEvent: $event,
+        templateUrl: '/views/headlines/headlineDialog.html',
+        locals: {
+          headline: $event
+        },
+        controller: 'DialogController'
+      });
     }else if(type === 'login' && !$scope.currentUser){
-      var parentEl = angular.element(document.body);
-      console.log('working!!!!!');
+      parentEl = angular.element(document.body);
       $mdDialog.show({
         parent: parentEl,
         templateUrl: '/views/auth/login.html',
         controller: 'UserLoginCtrl'
-      })
+      });
     }
   };
 

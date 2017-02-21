@@ -28,9 +28,9 @@ PlayerTracker.controller('HeadlinesShowCtrl',['$scope','$resource','$http','$mdD
     });
   };
 
-  // $http.get('/api/headline/getHeadlines').success(function(){
-  //   console.log('headlines washed and loaded');
-  // });
+  $http.get('/api/headline/getHeadlines').success(function(){
+    console.log('headlines washed and loaded');
+  });
 
   //calls getHeadlines() in HeadlineController
 

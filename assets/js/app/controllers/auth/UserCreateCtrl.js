@@ -8,8 +8,8 @@ PlayerTracker.controller('UserCreateCtrl',['$scope','$resource','$location',func
     user.$save(function(){
       $scope.email = '';
       $scope.password = '';
-      $location.path('/')
-      Materialize.toast('Your are signed up! Now login to enjoy the news', 4000,'signup')
-    })
-  }
-}])
+      $location.path('/');
+      Materialize.toast('Your are signed up! Now login to enjoy the news', 4000,'signup');
+    });
+  };
+}]);

@@ -34,14 +34,13 @@ PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserServ
   //   $scope.news = data
   // })
 
-  $scope.deletePlayer = function(playerId){
-    console.log(playerId);
-    $http.get('/api/userlist/deletePlayer', {params:{
-      player: 'hello?'
-    }})
+  $scope.deletePlayer = function(playerId,name){
+    $http.delete('/api/userlist/deletePlayer/' + playerId)
     .success(function(data) {
-      console.log(data);
-      // $location.path('/following');
+      if (data.status === 'success') {
+        $location.path('/following');
+        Materialize.toast(name + ' has been removed', 4000,'remove');
+      }
     });
   };
 
