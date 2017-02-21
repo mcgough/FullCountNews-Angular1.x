@@ -19,11 +19,11 @@ module.exports = {
    connections:{
     devMongoServer:{
         adapter: 'sails-mongo',
-        url: 'mongodb://heroku_app37515299:70s78p6ke47h80al0406uvmhuc@ds043022.mongolab.com:43022/heroku_app37515299'
+        url: process.env.MONGOLAB_URI
       }
     },
     models: {
-      connection: 'devMongoServer'
+      connection: 'ProdMongoServer'
     }
 
   /***************************************************************************
