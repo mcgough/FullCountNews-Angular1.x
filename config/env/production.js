@@ -23,7 +23,7 @@ module.exports = {
       }
     },
     models: {
-      connection: 'ProdMongoServer'
+      connection: 'devMongoServer'
     }
 
   /***************************************************************************
