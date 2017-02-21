@@ -14,7 +14,6 @@ PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','
       setInterval(function(){
         $http.get('/api/headline').success(function(data){
           // console.log('headlines:', ((new Date().getTime() / 1000 / 3600 * 60) - (Date.parse(data[0].updatedAt) / 1000 / 3600 * 60)) / 60);
-          console.log(data);
           $scope.news.push(data[index]);
           $scope.news.shift(0);
         });
