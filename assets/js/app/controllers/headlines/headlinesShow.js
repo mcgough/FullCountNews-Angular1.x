@@ -8,6 +8,7 @@ PlayerTracker.controller('HeadlinesShowCtrl',['$scope','$resource','$http','$mdD
   $scope.getHeadlines = function(){
     $scope.loading = true;
     Headline.query({},function(data){
+      console.log('headlines:',data);
       $scope.news = data;
       $scope.loading = false;
     });
