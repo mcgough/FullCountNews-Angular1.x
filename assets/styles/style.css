@@ -181,6 +181,10 @@ a {
   .signup-card {
     width: 100%;
   }
+  .nav-headline {
+    width: 230px;
+
+  }
 }
 
 @media (max-width: 600px) {
