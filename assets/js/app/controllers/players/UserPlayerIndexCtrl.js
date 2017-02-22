@@ -16,10 +16,6 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
       Headline = $resource('/api/headline/:id'),
       playerList;
 
-  $http.get('/api/playerdb/getAllPlayers').success(function(response) {
-    playerList = response;
-  });
-
   //autocomplete function
   $scope.getMatches = function(){
     var letterCount = $scope.searchText.length,
@@ -60,18 +56,18 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
 
   //loads users players and updates their stats
   $scope.loadUserList = function() {
+    $('.loading').addClass('active');
     $http.get('/api/userlist/updateUserlistStats')
       .success(function(response) {
         var playerList = response.map(function(obj) {
           return JSON.parse(obj.player);
         });
-
+        $('.loading').removeClass('active');
         $scope.playerList = playerList;
         $scope.getHeadlines();
 
       });
   };
-
 
   //delete button function
   $scope.deletePlayer = function(playerId){
@@ -82,7 +78,6 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     });
   };
 
-
   // compares headlines to user players last name
   $scope.getHeadlines = function(){
     $scope.loading = true;
@@ -91,8 +86,6 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     });
     $scope.loading = false;
   };
-
-  $scope.loadUserList();
 
   $scope.showDialog = function($event) {
     var parentEl = angular.element(document.body);
@@ -107,4 +100,15 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     });
   };
 
+  //Onload
+  $scope.loadUserList();
+
+  $http.get('/api/playerdb/getAllPlayers').success(function(response) {
+    playerList = response;
+  });
+
 }]);
+
+
+
+
