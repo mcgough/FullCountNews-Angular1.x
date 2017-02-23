@@ -73,8 +73,9 @@ nav .button-collapse {
   background: red;
   color: #fff;
 }
-.md-dialog-is-showing {
-  height: 100vh;
+.md-dialog-container {
+  position: fixed;
+  top: 0 !important;
 }
 /*auth*/
 
