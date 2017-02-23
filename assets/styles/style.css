@@ -73,7 +73,9 @@ nav .button-collapse {
   background: red;
   color: #fff;
 }
-
+.md-dialog-is-showing {
+  height: 100vh;
+}
 /*auth*/
 
 .signup-card {
