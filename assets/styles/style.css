@@ -208,6 +208,7 @@ nav .button-collapse {
   }
   .details .headshot {
     width: 100%;
+    height: 45vh;
   }
   .player-specifics {
     width: 100%;
