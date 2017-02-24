@@ -134,6 +134,9 @@ nav .button-collapse {
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
+.player-card {
+  height: 40vh;
+}
 .player-list img {
   margin-right: 15px;
 }
@@ -153,6 +156,7 @@ nav .button-collapse {
 }
 .details .headshot {
   width: 35%;
+  height: 40vh;
 }
 .player-specifics {
   display: -webkit-box;
@@ -165,6 +169,7 @@ nav .button-collapse {
   width: 63%;
   padding: 15px 15px 15px 0;
   position: relative;
+  height: 40vh;
 }
 .player-specifics .player-name {
   margin-bottom: 2%;
@@ -190,6 +195,11 @@ nav .button-collapse {
   bottom: 15px;
   right: 15px;
 }
+.player-specifics table {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+}
 .player-news-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -201,7 +211,16 @@ nav .button-collapse {
 .player-news-wrapper .collection {
   width: 49%;
 }
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+
+  }
+}
 @media screen and (max-width: 668px) {
+  .player-card {
+    height: 90vh;
+  }
   .collection-item.player-show .details {
     height: auto;
     -webkit-box-orient: vertical;
@@ -217,7 +236,10 @@ nav .button-collapse {
     width: 100%;
     padding: 10px;
   }
-  .player-actions {
+  .player-info p {
+    margin-bottom: 3.5%;
+  }
+  .player-actions,.player-specifics table {
     position: relative;
     bottom: 0;
     right: 0;
