@@ -39,6 +39,8 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     if (item) {
       $scope.searchText = '';
       var player = item;
+      $('.player-list-index').addClass('hidden');
+      $('.loading').addClass('active');
       $http.get('/api/playerdb/getPlayerStats',
         {params:{
           name: player.name,
@@ -48,7 +50,8 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
         var player = response,
             user = new Player();
         user.$save({userId:$scope.currentUser.id,player:player}, function(response) {
-          $scope.playerList.push(player);
+          // $scope.playerList.push(player);
+          $location.path('/following/' + player.id);
         });
       });
     }
@@ -63,7 +66,7 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
           return JSON.parse(obj.player);
         });
         $('.loading').removeClass('active');
-        $scope.playerList = playerList;
+        $scope.playerList = playerList.reverse();
         $scope.getHeadlines();
 
       });

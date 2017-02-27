@@ -4,6 +4,10 @@ body {
   background-color: #002F6C;
   font-family: 'Noto Sans', sans-serif;
 }
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
 h2 {
   color: #fff;
 }
@@ -219,7 +223,7 @@ nav .button-collapse {
 }
 @media screen and (max-width: 668px) {
   .player-card {
-    height: 90vh;
+    height: auto;
   }
   .collection-item.player-show .details {
     height: auto;
@@ -230,11 +234,12 @@ nav .button-collapse {
   }
   .details .headshot {
     width: 100%;
-    height: 45vh;
+    height: 42.5vh;
   }
   .player-specifics {
     width: 100%;
     padding: 10px;
+    height: auto;
   }
   .player-info p {
     margin-bottom: 3.5%;
