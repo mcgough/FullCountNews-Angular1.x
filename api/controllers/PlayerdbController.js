@@ -15,17 +15,17 @@ module.exports = {
         player;
     request('http://www.fantasypros.com' + url, function(error,response,data) {
       var $ = cheerio.load(data),
-          headshotImg = $('.player-photo img')[0].attribs.src,
-          statsContainer = $('.nine.columns table tbody tr')[0].children;
+          statsContainer = $('.feature-stretch table tbody tr').last().children();
+          headshotImg = $('.side-nav img')[0].attribs.src;
       Playerdb.find({name: playerName})
         .then(function(response) {
           player = response[0];
-          player.runsK = statsContainer[0].next.children[0].data;
-          player.hrW = statsContainer[1].next.children[0].data;
-          player.rbiSv = statsContainer[2].next.children[0].data;
-          player.sbEra = statsContainer[3].next.children[0].data;
-          player.avgWhip = statsContainer[4].next.children[0].data;
-          player.alert = statsContainer[5].next.children[0].data;
+          player.runsK = statsContainer[4].children[0].data;
+          player.hrW = statsContainer[8].children[0].data;
+          player.rbiSv = statsContainer[9].children[0].data;
+          player.sbEra = statsContainer[15].children[0].data;
+          player.avgWhip = statsContainer[16].children[0].data;
+          player.alert = '';
           player.img  = headshotImg;
           Playerdb.update({id: player.id},player)
             .exec(function(err,player) {

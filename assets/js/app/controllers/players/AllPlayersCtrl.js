@@ -4,15 +4,15 @@ PlayerTracker.controller('AllPlayersCtrl',['$scope','$resource','$http',function
 
   $http.get('/api/playerdb/getAllPlayers').success(function(data){
     $scope.players = data;
-  })
+  });
 
   $scope.updateDbStats = function(){
     $http.get('/api/playerdb/getPlayerStats').success(function(data){
-      console.log('success')
-    })
-  }
+      console.log('success');
+    });
+  };
 
   // $scope.updateDbStats();
 
 
-}])
+}]);
