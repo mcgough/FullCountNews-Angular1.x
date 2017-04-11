@@ -156,7 +156,7 @@ angular.module('angucomplete', [] )
 
             $scope.hoverRow = function(index) {
                 $scope.currentIndex = index;
-            }
+            };
 
             $scope.keyPressed = function(event) {
                 if (!(event.which == 38 || event.which == 40 || event.which == 13)) {

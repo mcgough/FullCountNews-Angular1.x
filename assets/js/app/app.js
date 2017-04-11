@@ -1,6 +1,8 @@
 var PlayerTracker = angular.module('PlayerTracker',['ngRoute','ngResource','ngAnimate','ngMaterial']);
 
+
 PlayerTracker.run(['$rootScope','AlertService','UserService',function($rootScope,AlertService,UserService){
+
   UserService.check(function(err,data){
     if (data) {
       console.log('online');
@@ -16,8 +18,8 @@ PlayerTracker.run(['$rootScope','AlertService','UserService',function($rootScope
   window.mobilecheck();
 }]);
 
-PlayerTracker.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
-
+PlayerTracker.config(['$routeProvider','$locationProvider','$controllerProvider',function($routeProvider,$locationProvider,$controllerProvider){
+  $controllerProvider.allowGlobals();
   $locationProvider.html5Mode(true);
 
   $routeProvider

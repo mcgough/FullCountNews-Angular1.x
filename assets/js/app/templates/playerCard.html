@@ -1,0 +1,13 @@
+<ul class="collection with-header card card-content z-depth-2">
+	<a class="player-link" ng-href="/following/{{ player.id }}">
+    <li class="collection-item player-list">
+       <img class="headshot" src="{{ player.img }}">
+       <div class="player-details">
+          <h4 class="card-player-name">{{ player.name }}</h4>
+          <div class="team-position">
+            <p>{{ player.team }} - {{ player.position }}</p>
+          </div>
+       </div>
+    </li>
+  </a>
+</ul>

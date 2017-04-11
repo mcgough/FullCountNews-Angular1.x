@@ -1,7 +1,6 @@
 PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','AlertService','$rootScope','$mdDialog','$route','$mdToast',function($scope,UserService,$location,$http,AlertService,$rootScope,$mdDialog,$route,$mdToast){
 
   $scope.UserService = UserService;
-  // $scope.currentUser = UserService.currentUser
 
   $scope.$watchCollection('UserService',function(){
     $scope.currentUser = UserService.currentUser;
@@ -13,7 +12,6 @@ PlayerTracker.controller('NavCtrl',['$scope','UserService','$location','$http','
     $http.get('/api/headline/getHeadlines').then(function(data) {
       setInterval(function(){
         $http.get('/api/headline').success(function(data){
-          // console.log('headlines:', ((new Date().getTime() / 1000 / 3600 * 60) - (Date.parse(data[0].updatedAt) / 1000 / 3600 * 60)) / 60);
           $scope.news.push(data[index]);
           $scope.news.shift(0);
         });
