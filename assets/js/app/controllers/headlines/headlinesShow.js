@@ -8,19 +8,15 @@ PlayerTracker.controller('HeadlinesShowCtrl',['$scope','$resource','$http','$mdD
   $scope.getHeadlines = function(){
     $scope.loading = true;
     Headline.query({},function(data){
-      // console.log('headlines:',data);
       $scope.news = data;
       $scope.loading = false;
     });
   };
 
-  $scope.getHeadlines();
-
   $scope.showDialog = function($event) {
     var parentEl = angular.element(document.body);
      $mdDialog.show({
        parent: parentEl,
-       // targetEvent: $event,
        templateUrl: '/views/headlines/headlineDialog.html',
        locals: {
          headline: $event
@@ -29,11 +25,11 @@ PlayerTracker.controller('HeadlinesShowCtrl',['$scope','$resource','$http','$mdD
     });
   };
 
+  $scope.getHeadlines();
+
   $http.get('/api/headline/getHeadlines').success(function(){
     console.log('headlines washed and loaded');
   });
-
-  //calls getHeadlines() in HeadlineController
 
 
 }]);

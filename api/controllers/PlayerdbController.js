@@ -14,6 +14,9 @@ module.exports = {
         url = req.query.url,
         player;
     request('http://www.fantasypros.com' + url, function(error,response,data) {
+      if (error) {
+        console.log(error);
+      }
       var $ = cheerio.load(data),
           statsContainer = $('.feature-stretch table tbody tr').last().children();
           headshotImg = $('.side-nav img')[0].attribs.src;

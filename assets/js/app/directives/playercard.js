@@ -1,4 +1,4 @@
-PlayerTracker.directive('playercard',function(){
+PlayerTracker.directive('playercard', function(){
   return {
     restrict: 'E',
     scope: false,

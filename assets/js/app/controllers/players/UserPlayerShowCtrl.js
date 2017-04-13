@@ -10,6 +10,7 @@ PlayerTracker.controller('UserPlayerShowCtrl',['$scope','$routeParams','UserServ
   });
 
   var Headline = $resource('/api/headline/:id');
+
   $http.get('/api/playerdb/' + $routeParams.id).success(function(data){
     $('.loading').addClass('active');
     var player = data;

@@ -61,14 +61,17 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
   $scope.loadUserList = function() {
     $('.loading').addClass('active');
     $http.get('/api/userlist/updateUserlistStats')
-      .success(function(response) {
-        var playerList = response.map(function(obj) {
+      .then(function(response) {
+        console.log(response.data);
+        var playerList = response.data.map(function(obj) {
           return JSON.parse(obj.player);
         });
         $('.loading').removeClass('active');
         $scope.playerList = playerList.reverse();
         $scope.getHeadlines();
 
+      }, function(err) {
+        console.log(err);
       });
   };
 
