@@ -16,6 +16,24 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
       Headline = $resource('/api/headline/:id'),
       playerList;
 
+  //loads users players and updates their stats
+  $scope.loadUserList = function() {
+    $('.loading').addClass('active');
+    $http.get('/api/userlist/updateUserlistStats')
+      .then(function(response) {
+        console.log(response.data);
+        var playerList = response.data.map(function(obj) {
+          return JSON.parse(obj.player);
+        });
+        $('.loading').removeClass('active');
+        $scope.playerList = playerList.reverse();
+        $scope.getHeadlines();
+
+      }, function(err) {
+        console.log(err);
+      });
+  };
+
   //autocomplete function
   $scope.getMatches = function(){
     var letterCount = $scope.searchText.length,
@@ -57,24 +75,6 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     }
   };
 
-  //loads users players and updates their stats
-  $scope.loadUserList = function() {
-    $('.loading').addClass('active');
-    $http.get('/api/userlist/updateUserlistStats')
-      .then(function(response) {
-        console.log(response.data);
-        var playerList = response.data.map(function(obj) {
-          return JSON.parse(obj.player);
-        });
-        $('.loading').removeClass('active');
-        $scope.playerList = playerList.reverse();
-        $scope.getHeadlines();
-
-      }, function(err) {
-        console.log(err);
-      });
-  };
-
   //delete button function
   $scope.deletePlayer = function(playerId){
     $http.delete('/api/userlist/deletePlayer',{params:{id:playerId}})
@@ -109,9 +109,9 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
   //Onload
   $scope.loadUserList();
 
-  $http.get('/api/playerdb/getAllPlayers').success(function(response) {
-    playerList = response;
-  });
+  // $http.get('/api/playerdb/getAllPlayers').success(function(response) {
+  //   playerList = response;
+  // });
 
 }]);
 
