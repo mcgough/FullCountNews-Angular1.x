@@ -109,9 +109,9 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
   //Onload
   $scope.loadUserList();
 
-  // $http.get('/api/playerdb/getAllPlayers').success(function(response) {
-  //   playerList = response;
-  // });
+  $http.get('/api/playerdb/getAllPlayers').success(function(response) {
+    playerList = response;
+  });
 
 }]);
 
