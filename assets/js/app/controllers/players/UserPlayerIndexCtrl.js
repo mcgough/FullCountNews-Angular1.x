@@ -22,7 +22,7 @@ PlayerTracker.controller('UserPlayerIndexCtrl',['$scope','$resource','$http','Us
     $http.get('/api/userlist/updateUserlistStats')
       .then(function(response) {
         console.log(response.data);
-        var playerList = response.data.map(function(obj) {
+        playerList = response.data.map(function(obj) {
           return JSON.parse(obj.player);
         });
         $('.loading').removeClass('active');
