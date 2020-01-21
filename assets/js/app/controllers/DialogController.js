@@ -1,9 +1,12 @@
-PlayerTracker.controller('DialogController',['$scope','$mdDialog','headline',function($scope,$mdDialog,headline){
+PlayerTracker.controller("DialogController", [
+  "$scope",
+  "$mdDialog",
+  "headline",
+  function($scope, $mdDialog, headline) {
+    $scope.headline = headline;
 
-  $scope.headline = headline;
-
-  $scope.closeDialog = function() {
-    $mdDialog.hide();
-  };
-
-}]);
+    $scope.closeDialog = function() {
+      $mdDialog.hide();
+    };
+  }
+]);

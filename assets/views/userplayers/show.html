@@ -1,22 +1,37 @@
-
-<div class='row'>
-  <div class='col m12 col s12'>
-    <div class='loading'><img src="../../images/gears.gif"></div>
-    <ul class="collection with-header card card-content z-depth-2 player-card" ng-if="player.name">
+<div class="row">
+  <div class="col m12 col s12">
+    <div class="loading"><img src="../../images/gears.gif" /></div>
+    <ul
+      class="collection with-header card card-content z-depth-2 player-card"
+      ng-if="player.name"
+    >
       <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
       <li class="collection-item player-show">
         <div class="details">
           <!-- <img class='headshot' src='{{player.img}}'> -->
-          <div class="headshot" style="background-image: url('{{ player.img }}'); background-size: cover; background-position: 50% 50%;"></div>
+          <div
+            class="headshot"
+            style="background-image: url('{{ player.img }}'); background-size: cover; background-position: 50% 50%;"
+          ></div>
           <div class="player-specifics">
             <div class="player-info">
               <div class="player-name">
-                <h4 class='card-player-name'>{{player.name}}</h4>
-                <button type="button" class="waves-effect waves-light btn red right" ng-click='deletePlayer(player.id,player.name)'><i class='fa fa-trash-o'></i></button>
+                <h4 class="card-player-name">{{player.name}}</h4>
+                <button
+                  type="button"
+                  class="waves-effect waves-light btn red right"
+                  ng-click="deletePlayer(player.id,player.name)"
+                >
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </div>
               <p class="team-position">{{player.team}} - {{player.position}}</p>
-              <p class="player-alert" ng-if="player.alert !== '-'">{{player.alert}}</p>
-              <p class="player-alert" ng-if="player.alert == '-'">No player alerts at this time.</p>
+              <p class="player-alert" ng-if="player.alert !== '-'">
+                {{player.alert}}
+              </p>
+              <p class="player-alert" ng-if="player.alert == '-'">
+                No player alerts at this time.
+              </p>
             </div>
             <table class="">
               <thead>
@@ -24,14 +39,14 @@
                   <th></th>
                   <th ng-hide="player.pitcher">Runs</th>
                   <th ng-show="player.pitcher">K's</th>
-                  <th ng-hide='player.pitcher'>HR's</th>
-                  <th ng-show='player.pitcher'>W's</th>
-                  <th ng-hide='player.pitcher'>RBI's</th>
-                  <th ng-show='player.pitcher'>Sv's</th>
-                  <th ng-hide='player.pitcher'>SB's</th>
-                  <th ng-show='player.pitcher'>ERA</th>
-                  <th ng-hide='player.pitcher'>AVG</th>
-                  <th ng-show='player.pitcher'>Whip</th>
+                  <th ng-hide="player.pitcher">HR's</th>
+                  <th ng-show="player.pitcher">W's</th>
+                  <th ng-hide="player.pitcher">RBI's</th>
+                  <th ng-show="player.pitcher">Sv's</th>
+                  <th ng-hide="player.pitcher">SB's</th>
+                  <th ng-show="player.pitcher">ERA</th>
+                  <th ng-hide="player.pitcher">AVG</th>
+                  <th ng-show="player.pitcher">Whip</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,27 +94,31 @@
               </tbody>
             </table>
             <div class="player-actions">
-              <a ng-href='/following' type="button" class="waves-effect waves-light btn blue right">Lineup</a>
+              <a
+                ng-href="/following"
+                type="button"
+                class="waves-effect waves-light btn blue right"
+                >Lineup</a
+              >
             </div>
           </div>
         </div>
       </li>
     </ul>
   </div>
-<div class='col m12 col s12 player-news-wrapper'>
-    <ul class="collection with-header card card-content z-depth-3 player-news-card" ng-repeat='new in news | limitTo: 3'>
-  <!--     <div class='card'>
+  <div class="col m12 col s12 player-news-wrapper">
+    <ul
+      class="collection with-header card card-content z-depth-3 player-news-card"
+      ng-repeat="new in news | limitTo: 3"
+    >
+      <!--     <div class='card'>
         <div class='card-content'> -->
-          <li class="collection-item player-news">
-            <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
-            <b>{{new.title}}</b><br><br>{{new.body}}
-
-          </li>
- <!--        </div>
+      <li class="collection-item player-news">
+        <!-- <li class="collection-item"> <h4>Alvin</h4></li> -->
+        <b>{{new.title}}</b><br /><br />{{new.body}}
+      </li>
+      <!--        </div>
       </div> -->
     </ul>
   </div>
 </div>
-
-
-

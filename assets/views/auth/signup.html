@@ -1,24 +1,33 @@
-<div class='signup-card'>
-  <h2 class='center'>SignUp</h2>
-  <div class='card z-depth-5'>
+<div class="signup-card">
+  <h2 class="center">SignUp</h2>
+  <div class="card z-depth-5">
     <div class="card-content">
-      <form ng-submit='userCreate()'>
+      <form ng-submit="userCreate()">
         <!-- <legend>Register</legend> -->
         <div class="input-field">
           <div class="form-group">
             <label class="control-label" for="">Email</label>
             <span class="help-block"></span>
-            <input ng-model='email' type="text" class="form-control" id="" required>
-
-
+            <input
+              ng-model="email"
+              type="text"
+              class="form-control"
+              id=""
+              required
+            />
           </div>
         </div>
         <div class="input-field">
           <div class="form-group">
             <label class="control-label" for="">Password</label>
             <span class="help-block"></span>
-            <input ng-model='password' type="password" class="form-control" id="" required>
-
+            <input
+              ng-model="password"
+              type="password"
+              class="form-control"
+              id=""
+              required
+            />
           </div>
         </div>
         <button type="submit" class="btn blue">Submit</button>
